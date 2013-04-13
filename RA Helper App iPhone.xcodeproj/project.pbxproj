@@ -19,6 +19,7 @@
 		2E7695421718FFE3002D45B7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7695401718FFE3002D45B7 /* MainStoryboard.storyboard */; };
 		2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */; };
 		2EDF3E3C1719127300CE4614 /* checkouticon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3B1719127300CE4614 /* checkouticon2.png */; };
+		2EDF3E3F1719201D00CE4614 /* DormModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		2EDF3E3817190C5F00CE4614 /* MainMenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTabBarController.h; sourceTree = "<group>"; };
 		2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTabBarController.m; sourceTree = "<group>"; };
 		2EDF3E3B1719127300CE4614 /* checkouticon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkouticon2.png; sourceTree = "<group>"; };
+		2EDF3E3E1719201D00CE4614 /* DormModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DormModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		2E76951C1718FFE3002D45B7 = {
 			isa = PBXGroup;
 			children = (
+				2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */,
 				2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */,
 				2E7695271718FFE3002D45B7 /* Frameworks */,
 				2E7695261718FFE3002D45B7 /* Products */,
@@ -180,6 +183,7 @@
 				2E7695351718FFE3002D45B7 /* main.m in Sources */,
 				2E7695391718FFE3002D45B7 /* AppDelegate.m in Sources */,
 				2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */,
+				2EDF3E3F1719201D00CE4614 /* DormModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +309,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2EDF3E3E1719201D00CE4614 /* DormModel.xcdatamodel */,
+			);
+			currentVersion = 2EDF3E3E1719201D00CE4614 /* DormModel.xcdatamodel */;
+			path = DormModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E76951D1718FFE3002D45B7 /* Project object */;
 }

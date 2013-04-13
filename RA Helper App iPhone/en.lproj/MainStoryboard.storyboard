@@ -43,7 +43,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="-2" title="Checkout" image="checkouticon2.png" id="Sgu-sY-AhB"/>
+                    <tabBarItem key="tabBarItem" title="Checkout" image="checkouticon2.png" id="Sgu-sY-AhB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDl-mN-5HO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +71,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkouticon2.png" width="30" height="30"/>
+        <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
