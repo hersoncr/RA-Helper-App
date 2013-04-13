@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Item 2-->
+        <!--View Controller-->
         <scene sceneID="AiA-y6-aq9">
             <objects>
                 <viewController id="yzf-Kk-ctb" sceneMemberID="viewController">
@@ -13,13 +13,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wUr-yg-38d"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="wUr-yg-38d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXP-cY-5qb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="393" y="307"/>
         </scene>
-        <!--View Controller - Item 1-->
+        <!--View Controller - Checkout-->
         <scene sceneID="g7R-kC-ekG">
             <objects>
                 <viewController id="PBb-cL-NsD" sceneMemberID="viewController">
@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Sgu-sY-AhB"/>
+                    <tabBarItem key="tabBarItem" tag="-2" title="Checkout" image="checkouticon2.png" id="Sgu-sY-AhB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDl-mN-5HO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,15 +38,15 @@
         <scene sceneID="JVt-cx-VzM">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="j1v-gg-lXt" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="mya-8f-SXQ">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PBb-cL-NsD" kind="relationship" relationship="viewControllers" id="qh5-bH-Tp4"/>
                         <segue destination="yzf-Kk-ctb" kind="relationship" relationship="viewControllers" id="LSJ-FB-oCr"/>
+                        <segue destination="PBb-cL-NsD" kind="relationship" relationship="viewControllers" id="qh5-bH-Tp4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PvZ-8O-5yY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -54,6 +54,9 @@
             <point key="canvasLocation" x="-141" y="-19"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkouticon2.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
