@@ -25,6 +25,7 @@
 		2EDF3E57171934EE00CE4614 /* Resident.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E56171934EE00CE4614 /* Resident.m */; };
 		2EDF3E5A171934EE00CE4614 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E59171934EE00CE4614 /* Room.m */; };
 		2EDF3E5D171934EE00CE4614 /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E5C171934EE00CE4614 /* DormWing.m */; };
+		2EDF3E6117193C5100CE4614 /* CheckoutResidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		2EDF3E59171934EE00CE4614 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		2EDF3E5B171934EE00CE4614 /* DormWing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DormWing.h; sourceTree = "<group>"; };
 		2EDF3E5C171934EE00CE4614 /* DormWing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DormWing.m; sourceTree = "<group>"; };
+		2EDF3E5F17193C5100CE4614 /* CheckoutResidentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckoutResidentsViewController.h; sourceTree = "<group>"; };
+		2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckoutResidentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				2EDF3E3817190C5F00CE4614 /* MainMenuTabBarController.h */,
 				2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */,
 				2E76952F1718FFE3002D45B7 /* Supporting Files */,
+				2EDF3E5F17193C5100CE4614 /* CheckoutResidentsViewController.h */,
+				2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */,
 			);
 			path = "RA Helper App iPhone";
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				2EDF3E57171934EE00CE4614 /* Resident.m in Sources */,
 				2EDF3E5A171934EE00CE4614 /* Room.m in Sources */,
 				2EDF3E5D171934EE00CE4614 /* DormWing.m in Sources */,
+				2EDF3E6117193C5100CE4614 /* CheckoutResidentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
