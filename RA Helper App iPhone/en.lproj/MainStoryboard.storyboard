@@ -34,20 +34,47 @@
             </objects>
             <point key="canvasLocation" x="393" y="307"/>
         </scene>
-        <!--View Controller - Checkout-->
-        <scene sceneID="g7R-kC-ekG">
+        <!--Table View Controller-->
+        <scene sceneID="5uc-xw-t6q">
             <objects>
-                <viewController id="PBb-cL-NsD" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="clf-16-jqr">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Checkout" image="checkouticon2.png" id="Sgu-sY-AhB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GDl-mN-5HO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="5gd-ty-lg9" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ha5-0k-vV1">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Check Resident Cell" editingAccessoryType="checkmark" textLabel="PnU-WX-2Tc" detailTextLabel="5jL-11-fXp" style="IBUITableViewCellStyleSubtitle" id="TnH-fd-C4P">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnU-WX-2Tc">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jL-11-fXp">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5gd-ty-lg9" id="nR0-l4-bF6"/>
+                            <outlet property="delegate" destination="5gd-ty-lg9" id="UMd-I6-sYG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="LBy-ME-8lH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8l-h2-ty7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="-346"/>
+            <point key="canvasLocation" x="963" y="-469"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JVt-cx-VzM">
@@ -60,14 +87,33 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PBb-cL-NsD" kind="relationship" relationship="viewControllers" id="qh5-bH-Tp4"/>
                         <segue destination="yzf-Kk-ctb" kind="relationship" relationship="viewControllers" id="LSJ-FB-oCr"/>
                         <segue destination="ih5-KD-Jzt" kind="relationship" relationship="viewControllers" id="3uB-1l-Kc5"/>
+                        <segue destination="6kk-8G-1ZQ" kind="relationship" relationship="viewControllers" id="8xn-2T-BYC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PvZ-8O-5yY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-141" y="-19"/>
+        </scene>
+        <!--Navigation Controller - Checkout-->
+        <scene sceneID="MYX-Yy-WHv">
+            <objects>
+                <navigationController id="6kk-8G-1ZQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Checkout" image="checkouticon2.png" id="0hY-fl-ZUl"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OaP-b5-IeZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5gd-ty-lg9" kind="relationship" relationship="rootViewController" id="gSO-YW-r0R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3O-rn-PId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="437" y="-469"/>
         </scene>
     </scenes>
     <resources>
