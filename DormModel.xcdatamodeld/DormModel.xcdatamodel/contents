@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="CurfewCheck" syncable="YES">
+    <entity name="CurfewCheck" representedClassName="CurfewCheck" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Resident" inverseName="checkouts" inverseEntity="Resident" syncable="YES"/>
-        <relationship name="residentId" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Status" inverseName="curfewChecks" inverseEntity="Status" syncable="YES"/>
+        <relationship name="residentId" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Resident" inverseName="checkouts" inverseEntity="Resident" syncable="YES"/>
+        <relationship name="status" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Status" inverseName="curfewChecks" inverseEntity="Status" syncable="YES"/>
     </entity>
-    <entity name="DormWing" syncable="YES">
+    <entity name="DormWing" representedClassName="DormWing" syncable="YES">
         <attribute name="dorm" attributeType="String" syncable="YES"/>
         <attribute name="wingName" attributeType="String" syncable="YES"/>
         <relationship name="rooms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Room" inverseName="wing" inverseEntity="Room" syncable="YES"/>
     </entity>
-    <entity name="Resident" syncable="YES">
+    <entity name="Resident" representedClassName="Resident" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="residentId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="checkouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CurfewCheck" inverseName="newRelationship" inverseEntity="CurfewCheck" syncable="YES"/>
+        <relationship name="checkouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CurfewCheck" inverseName="residentId" inverseEntity="CurfewCheck" syncable="YES"/>
         <relationship name="room" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="residents" inverseEntity="Room" syncable="YES"/>
     </entity>
-    <entity name="Room" syncable="YES">
+    <entity name="Room" representedClassName="Room" syncable="YES">
         <attribute name="roomName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="residents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Resident" inverseName="room" inverseEntity="Resident" syncable="YES"/>
         <relationship name="wing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DormWing" inverseName="rooms" inverseEntity="DormWing" syncable="YES"/>
     </entity>
-    <entity name="Status" syncable="YES">
+    <entity name="Status" representedClassName="Status" syncable="YES">
         <attribute name="statusName" attributeType="String" syncable="YES"/>
-        <relationship name="curfewChecks" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="CurfewCheck" inverseName="residentId" inverseEntity="CurfewCheck" syncable="YES"/>
+        <relationship name="curfewChecks" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="CurfewCheck" inverseName="status" inverseEntity="CurfewCheck" syncable="YES"/>
     </entity>
     <elements>
         <element name="CurfewCheck" positionX="-432" positionY="-837" width="126" height="88"/>

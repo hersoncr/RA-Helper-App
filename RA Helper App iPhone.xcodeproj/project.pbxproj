@@ -20,6 +20,11 @@
 		2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */; };
 		2EDF3E3C1719127300CE4614 /* checkouticon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3B1719127300CE4614 /* checkouticon2.png */; };
 		2EDF3E3F1719201D00CE4614 /* DormModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */; };
+		2EDF3E51171934EE00CE4614 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E50171934EE00CE4614 /* Status.m */; };
+		2EDF3E54171934EE00CE4614 /* CurfewCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E53171934EE00CE4614 /* CurfewCheck.m */; };
+		2EDF3E57171934EE00CE4614 /* Resident.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E56171934EE00CE4614 /* Resident.m */; };
+		2EDF3E5A171934EE00CE4614 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E59171934EE00CE4614 /* Room.m */; };
+		2EDF3E5D171934EE00CE4614 /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E5C171934EE00CE4614 /* DormWing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,16 @@
 		2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTabBarController.m; sourceTree = "<group>"; };
 		2EDF3E3B1719127300CE4614 /* checkouticon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkouticon2.png; sourceTree = "<group>"; };
 		2EDF3E3E1719201D00CE4614 /* DormModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DormModel.xcdatamodel; sourceTree = "<group>"; };
+		2EDF3E4F171934EE00CE4614 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		2EDF3E50171934EE00CE4614 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
+		2EDF3E52171934EE00CE4614 /* CurfewCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurfewCheck.h; sourceTree = "<group>"; };
+		2EDF3E53171934EE00CE4614 /* CurfewCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurfewCheck.m; sourceTree = "<group>"; };
+		2EDF3E55171934EE00CE4614 /* Resident.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resident.h; sourceTree = "<group>"; };
+		2EDF3E56171934EE00CE4614 /* Resident.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resident.m; sourceTree = "<group>"; };
+		2EDF3E58171934EE00CE4614 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		2EDF3E59171934EE00CE4614 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		2EDF3E5B171934EE00CE4614 /* DormWing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DormWing.h; sourceTree = "<group>"; };
+		2EDF3E5C171934EE00CE4614 /* DormWing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DormWing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +75,7 @@
 		2E76951C1718FFE3002D45B7 = {
 			isa = PBXGroup;
 			children = (
-				2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */,
+				2EDF3E5E171934FB00CE4614 /* DataModel */,
 				2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */,
 				2E7695271718FFE3002D45B7 /* Frameworks */,
 				2E7695261718FFE3002D45B7 /* Products */,
@@ -111,6 +126,24 @@
 				2E76953E1718FFE3002D45B7 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2EDF3E5E171934FB00CE4614 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2EDF3E5B171934EE00CE4614 /* DormWing.h */,
+				2EDF3E5C171934EE00CE4614 /* DormWing.m */,
+				2EDF3E58171934EE00CE4614 /* Room.h */,
+				2EDF3E59171934EE00CE4614 /* Room.m */,
+				2EDF3E55171934EE00CE4614 /* Resident.h */,
+				2EDF3E56171934EE00CE4614 /* Resident.m */,
+				2EDF3E52171934EE00CE4614 /* CurfewCheck.h */,
+				2EDF3E53171934EE00CE4614 /* CurfewCheck.m */,
+				2EDF3E4F171934EE00CE4614 /* Status.h */,
+				2EDF3E50171934EE00CE4614 /* Status.m */,
+				2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +217,11 @@
 				2E7695391718FFE3002D45B7 /* AppDelegate.m in Sources */,
 				2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */,
 				2EDF3E3F1719201D00CE4614 /* DormModel.xcdatamodeld in Sources */,
+				2EDF3E51171934EE00CE4614 /* Status.m in Sources */,
+				2EDF3E54171934EE00CE4614 /* CurfewCheck.m in Sources */,
+				2EDF3E57171934EE00CE4614 /* Resident.m in Sources */,
+				2EDF3E5A171934EE00CE4614 /* Room.m in Sources */,
+				2EDF3E5D171934EE00CE4614 /* DormWing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
