@@ -23,6 +23,7 @@
 		2E76A0F0171FA76400BEE0C0 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E76A0EF171FA76400BEE0C0 /* CoreDataTableViewController.m */; };
 		2E8BB7CD171CDBD500014413 /* DormModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7CB171CDBD500014413 /* DormModel.xcdatamodeld */; };
 		2E8BB7FF171CDCDB00014413 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8BB7FE171CDCDB00014413 /* CoreData.framework */; };
+		2EA31CE5171FD87000A7500D /* AddResidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA31CE4171FD87000A7500D /* AddResidentViewController.m */; };
 		2EAF052E171FC1710080613F /* Resident.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF052D171FC1710080613F /* Resident.m */; };
 		2EAF0531171FC1710080613F /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF0530171FC1710080613F /* Status.m */; };
 		2EAF0534171FC1710080613F /* CurfewCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF0533171FC1710080613F /* CurfewCheck.m */; };
@@ -58,6 +59,8 @@
 		2E76A0EF171FA76400BEE0C0 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		2E8BB7CC171CDBD500014413 /* DormModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DormModel.xcdatamodel; sourceTree = "<group>"; };
 		2E8BB7FE171CDCDB00014413 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2EA31CE3171FD87000A7500D /* AddResidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddResidentViewController.h; sourceTree = "<group>"; };
+		2EA31CE4171FD87000A7500D /* AddResidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddResidentViewController.m; sourceTree = "<group>"; };
 		2EAF052C171FC1710080613F /* Resident.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resident.h; sourceTree = "<group>"; };
 		2EAF052D171FC1710080613F /* Resident.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resident.m; sourceTree = "<group>"; };
 		2EAF052F171FC1710080613F /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				2E76A0E7171F992F00BEE0C0 /* ResidentsViewController.m */,
 				2E76A0EE171FA76300BEE0C0 /* CoreDataTableViewController.h */,
 				2E76A0EF171FA76400BEE0C0 /* CoreDataTableViewController.m */,
+				2EA31CE3171FD87000A7500D /* AddResidentViewController.h */,
+				2EA31CE4171FD87000A7500D /* AddResidentViewController.m */,
 			);
 			path = "RA Helper App iPhone";
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				2EAF0534171FC1710080613F /* CurfewCheck.m in Sources */,
 				2EAF0537171FC1710080613F /* DormWing.m in Sources */,
 				2EAF053A171FC1720080613F /* Room.m in Sources */,
+				2EA31CE5171FD87000A7500D /* AddResidentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

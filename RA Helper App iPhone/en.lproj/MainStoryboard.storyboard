@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="451" y="-225"/>
         </scene>
-        <!--View Controller - Add New Resident-->
+        <!--Add Resident View Controller - Add New Resident-->
         <scene sceneID="xdE-L8-Wbt">
             <objects>
-                <viewController id="NSD-PE-XWX" sceneMemberID="viewController">
+                <viewController id="NSD-PE-XWX" customClass="AddResidentViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TOS-Ze-0sV">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmA-rQ-u5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="-291"/>
+            <point key="canvasLocation" x="985" y="294"/>
         </scene>
         <!--Checkout Residents View Controller - Checkout Rooms-->
         <scene sceneID="5uc-xw-t6q">
@@ -212,7 +212,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8l-h2-ty7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="-925"/>
+            <point key="canvasLocation" x="319" y="-1125"/>
         </scene>
         <!--Tab Bar Controller - Main Menu-->
         <scene sceneID="JVt-cx-VzM">
@@ -275,20 +275,6 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="CheckoutResidentsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckoutResidentsViewController.h"/>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
