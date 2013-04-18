@@ -40,7 +40,8 @@
         resident.firstName = firstName;
         resident.lastName = lastName;
         resident.phone = phoneNumber;
-        resident.residentId = [[[NSNumberFormatter alloc] init] numberFromString:phoneNumber];
+
+        resident.residentId = [NSNumber numberWithInteger:[residentID integerValue]];
         
     } else {
         // Found matching entry in database.  Return it!

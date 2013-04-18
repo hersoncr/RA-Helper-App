@@ -10,7 +10,7 @@
 #import "CoreDataTableViewController.h"
 
 @interface ResidentsViewController : CoreDataTableViewController
-@property NSArray * residents;
+
 @property (nonatomic, strong) UIManagedDocument *residentsDatabase;
 
 @end

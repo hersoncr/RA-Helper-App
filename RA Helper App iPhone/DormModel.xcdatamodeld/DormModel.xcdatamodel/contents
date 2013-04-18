@@ -25,7 +25,7 @@
     </entity>
     <entity name="Status" representedClassName="Status" syncable="YES">
         <attribute name="statusName" attributeType="String" syncable="YES"/>
-        <relationship name="curfewChecks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="CurfewCheck" inverseName="status" inverseEntity="CurfewCheck" syncable="YES"/>
+        <relationship name="curfewChecks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CurfewCheck" inverseName="status" inverseEntity="CurfewCheck" syncable="YES"/>
     </entity>
     <elements>
         <element name="CurfewCheck" positionX="-432" positionY="-837" width="126" height="88"/>

@@ -17,7 +17,7 @@
 
 @implementation ResidentsViewController
 @synthesize residentsDatabase = _residentsDatabase;
-@synthesize residents = _residents;
+
 
 - (void) setUp
 {
@@ -29,10 +29,16 @@
         // Now create the document on disk and call the setter for photoDatabase property
         self.residentsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
         
-        [Resident residentWithFirstName:@"Default" LastName:@"DefaultLastName" Phone:@"000-000-0000" ResidentID:@"00000000" inManagedObjectContext:self.residentsDatabase.managedObjectContext];
+        
     }
     
 }
+/*
+- (IBAction)addResident:(id)sender {
+    [Resident residentWithFirstName:@"Default" LastName:@"DefaultLastName" Phone:@"000-000-0000" ResidentID:@"00000000" inManagedObjectContext:self.residentsDatabase.managedObjectContext];
+    [self.residentsDatabase.managedObjectContext save:nil];
+}*/
+
 - (void)setResidentsDatabase:(UIManagedDocument *)residentsDatabase
 {
     // setter for photoDatabase
@@ -136,21 +142,23 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.residents count];
+    return [self.fetchedResultsController.fetchedObjects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Resident Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Resident * resident = [self.residents objectAtIndex:indexPath.row];
+    Resident * resident = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",resident.lastName,resident.firstName];
     cell.detailTextLabel.text = resident.room.roomName;
     
     return cell;
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.

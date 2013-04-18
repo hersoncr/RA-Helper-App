@@ -46,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="628" y="-216"/>
         </scene>
-        <!--Checkout Residents View Controller-->
+        <!--Checkout Residents View Controller - Checkout Rooms-->
         <scene sceneID="5uc-xw-t6q">
             <objects>
                 <tableViewController id="5gd-ty-lg9" customClass="CheckoutResidentsViewController" sceneMemberID="viewController">
@@ -82,7 +82,7 @@
                             <outlet property="delegate" destination="5gd-ty-lg9" id="UMd-I6-sYG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="LBy-ME-8lH"/>
+                    <navigationItem key="navigationItem" title="Checkout Rooms" id="LBy-ME-8lH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8l-h2-ty7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,11 +126,11 @@
             </objects>
             <point key="canvasLocation" x="-243" y="-909"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Residents-->
         <scene sceneID="KB4-Ng-cDf">
             <objects>
                 <navigationController id="ATT-gd-kI7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gYz-5r-mTz"/>
+                    <tabBarItem key="tabBarItem" title="Residents" id="gYz-5r-mTz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dHQ-wj-Nf2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -149,17 +149,6 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="CheckoutResidentsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckoutResidentsViewController.h"/>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
