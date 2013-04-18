@@ -20,6 +20,49 @@
 @implementation CheckoutResidentsViewController
 @synthesize residents = _residents;
 @synthesize statuses = _statuses;
+@synthesize statusDatabase = _statusDatabase;
+
+
+- (void)setStatusDatabase:(UIManagedDocument *)statusDatabase
+{
+    // setter for photoDatabase
+    if (_statusDatabase != statusDatabase) {
+        _statusDatabase = statusDatabase;
+        [self useDocument];
+    }
+}
+
+- (void) populateDefaultStatus
+{
+    
+}
+
+- (void)useDocument
+{   // Open or create the document here and call setupFetchedResultsController
+    
+    if ( ![[NSFileManager defaultManager] fileExistsAtPath:[self.statusDatabase.fileURL path]] ) {
+        // document does not exist on disk, so create it (using a BLOCK on a separate thread)
+        [self.statusDatabase saveToURL:self.statusDatabase.fileURL
+                     forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+                         if (success) {
+                             [self populateDefaultStatus];
+                         }
+                     }];
+        
+    } else if (self.statusDatabase.documentState == UIDocumentStateClosed) {
+        // document does exist on disk, but we need to open it (again, we use a separate thread)
+        [self.statusDatabase openWithCompletionHandler:^(BOOL success) {
+            if (success) {
+                [self populateDefaultStatus];
+            }
+        }];
+        
+    } else if (self.statusDatabase.documentState == UIDocumentStateNormal) {
+        // document is already open and ready to use
+        [self populateDefaultStatus];
+    }
+    
+}
 
 + (NSArray *) getStatus {
     
@@ -40,8 +83,17 @@
 
 - (void) setUp
 {
-     
-    NSManagedObjectContext *context = [ managedObjectContext];
+    if (!self.statusDatabase) {  // we'll create a default database if none is set
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"Default Status Database"];
+        // url is now "<Documents Directory>/Default Status Database"
+        
+        // Now create the document on disk and call the setter for statusDatabase property
+        self.statusDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+    }
+    
+    /*
+     NSManagedObjectContext *context = [ managedObjectContext];
     
     NSEntityDescription *entityDesctiption = [NSEntityDescription
                                               entityForName: entityName
@@ -55,7 +107,7 @@
     [managedObjectContext save:nil];
     
     
-    
+    */
     
     _statuses = [CheckoutResidentsViewController getStatus];
     

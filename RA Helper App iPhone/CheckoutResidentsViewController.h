@@ -10,7 +10,7 @@
 
 @interface CheckoutResidentsViewController : UITableViewController
 @property NSArray * residents;
-
+@property (nonatomic, strong) UIManagedDocument *statusDatabase;
 + (NSArray *) getStatus ;
 @end
 
