@@ -32,9 +32,9 @@
     }
 }
 
-- (void) populateDefaultStatus
+- (void) populateStatusDatabaseWithDefaults
 {
-    
+    _statuses = [CheckoutResidentsViewController getStatus];
 }
 
 - (void)useDocument
@@ -45,7 +45,7 @@
         [self.statusDatabase saveToURL:self.statusDatabase.fileURL
                      forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                          if (success) {
-                             [self populateDefaultStatus];
+                             [self populateStatusDatabaseWithDefaults];
                          }
                      }];
         
@@ -53,18 +53,18 @@
         // document does exist on disk, but we need to open it (again, we use a separate thread)
         [self.statusDatabase openWithCompletionHandler:^(BOOL success) {
             if (success) {
-                [self populateDefaultStatus];
+                [self populateStatusDatabaseWithDefaults];
             }
         }];
         
     } else if (self.statusDatabase.documentState == UIDocumentStateNormal) {
         // document is already open and ready to use
-        [self populateDefaultStatus];
+        [self populateStatusDatabaseWithDefaults];
     }
     
 }
 
-+ (NSArray *) getStatus {
++ (NSArray *) getStatuses {
     
     static NSArray  * statuses = nil;
     
@@ -111,10 +111,7 @@
     
     _statuses = [CheckoutResidentsViewController getStatus];
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resident"];
-    NSManagedObjectContext *moc = [[[Resident alloc] init] managedObjectContext];
-    NSError *error;
-    _residents = [moc executeFetchRequest:request error:&error];
+   
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
