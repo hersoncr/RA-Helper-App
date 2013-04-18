@@ -19,7 +19,7 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Status"];
     
     //  (2) Add the information for the predicate (matching criteria)
-     request.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+     request.predicate = [NSPredicate predicateWithFormat:@"statusName = %@", name];
     //  (3) Add sort keys to the fetch request
     
     //  (4) Execute the fetch  (we'll ignore the errors here)
@@ -53,28 +53,31 @@
 + (NSArray *) getAllStatusesWithContext:(NSManagedObjectContext *)context
 {
     static NSArray * statusesNames = nil;
-    static NSArray * statuses = nil;
-    if (statuses == nil)
+    static NSArray * statusesStatic = nil;
+    
+    if (statusesStatic == nil)
     {        
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Status"];
         NSError *error = nil;
-        statuses = [context executeFetchRequest:request error:&error];
+        statusesStatic = [context executeFetchRequest:request error:&error];
         
-        if (!statuses ) {
+        if (!statusesStatic ) {
             // if nil, there is some type of problem (would be better to handle this, but ... )
             // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
-            NSLog(@"Error!  statuses = %@",statuses);
-        }else if([statuses count] == 0)
+            NSLog(@"Error!  statuses = %@",statusesStatic);
+        }else if([statusesStatic count] == 0)
         {
+            NSMutableArray * statuses = [[NSMutableArray alloc] init];
             if (statusesNames == nil) {
                 statusesNames = [[NSArray alloc] initWithObjects:@"Present",@"Absent",@"Excused", nil];
             }
             for (NSString * name in statusesNames) {
-                [Status statusWithName:name inManagedObjectContext:context];
+               [statuses  addObject:[Status statusWithName:name inManagedObjectContext:context]];
             }
+            statusesStatic = statuses;
         }
     }
     
-    return statuses;
+    return statusesStatic;
 }
 @end

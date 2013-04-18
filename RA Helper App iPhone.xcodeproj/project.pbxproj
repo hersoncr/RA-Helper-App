@@ -18,6 +18,7 @@
 		2E76953F1718FFE3002D45B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E76953E1718FFE3002D45B7 /* Default-568h@2x.png */; };
 		2E7695421718FFE3002D45B7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7695401718FFE3002D45B7 /* MainStoryboard.storyboard */; };
 		2E76A0E5171F8ADD00BEE0C0 /* Status+Status_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E76A0E4171F8ADD00BEE0C0 /* Status+Status_Create.m */; };
+		2E76A0E8171F992F00BEE0C0 /* ResidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E76A0E7171F992F00BEE0C0 /* ResidentsViewController.m */; };
 		2E8BB7CD171CDBD500014413 /* DormModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7CB171CDBD500014413 /* DormModel.xcdatamodeld */; };
 		2E8BB7F1171CDC4200014413 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F0171CDC4200014413 /* Status.m */; };
 		2E8BB7F4171CDC4200014413 /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F3171CDC4200014413 /* DormWing.m */; };
@@ -47,6 +48,10 @@
 		2E7695411718FFE3002D45B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		2E76A0E3171F8ADD00BEE0C0 /* Status+Status_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Status+Status_Create.h"; sourceTree = "<group>"; };
 		2E76A0E4171F8ADD00BEE0C0 /* Status+Status_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Status+Status_Create.m"; sourceTree = "<group>"; };
+		2E76A0E6171F992F00BEE0C0 /* ResidentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResidentsViewController.h; sourceTree = "<group>"; };
+		2E76A0E7171F992F00BEE0C0 /* ResidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResidentsViewController.m; sourceTree = "<group>"; };
+		2E76A0E9171F9A3C00BEE0C0 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		2E76A0EA171F9A3C00BEE0C0 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		2E8BB7CC171CDBD500014413 /* DormModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DormModel.xcdatamodel; sourceTree = "<group>"; };
 		2E8BB7EF171CDC4200014413 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
 		2E8BB7F0171CDC4200014413 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
@@ -112,6 +117,8 @@
 		2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				2E76A0E9171F9A3C00BEE0C0 /* CoreDataTableViewController.h */,
+				2E76A0EA171F9A3C00BEE0C0 /* CoreDataTableViewController.m */,
 				2E8BB800171CDD0000014413 /* DataEntities */,
 				2E7695371718FFE3002D45B7 /* AppDelegate.h */,
 				2E7695381718FFE3002D45B7 /* AppDelegate.m */,
@@ -121,6 +128,8 @@
 				2E76952F1718FFE3002D45B7 /* Supporting Files */,
 				2EDF3E5F17193C5100CE4614 /* CheckoutResidentsViewController.h */,
 				2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */,
+				2E76A0E6171F992F00BEE0C0 /* ResidentsViewController.h */,
+				2E76A0E7171F992F00BEE0C0 /* ResidentsViewController.m */,
 			);
 			path = "RA Helper App iPhone";
 			sourceTree = "<group>";
@@ -238,6 +247,7 @@
 				2E8BB7FA171CDC4200014413 /* Resident.m in Sources */,
 				2E8BB7FD171CDC4200014413 /* Room.m in Sources */,
 				2E76A0E5171F8ADD00BEE0C0 /* Status+Status_Create.m in Sources */,
+				2E76A0E8171F992F00BEE0C0 /* ResidentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
