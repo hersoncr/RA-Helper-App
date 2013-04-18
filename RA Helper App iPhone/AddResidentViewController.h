@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
-@interface AddResidentViewController : CoreDataTableViewController <UIPickerViewDataSource,UIPickerViewDelegate>
-@property UIPickerView * pickerView;
+@interface AddResidentViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *firstNameOutlet;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerViewOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *phoneOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *studentIDOutlet;
 @property NSArray * pickerViewDataSource;
 @end
