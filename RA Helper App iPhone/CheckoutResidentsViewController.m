@@ -34,7 +34,7 @@
 
 - (void) populateStatusDatabaseWithDefaults
 {
-    _statuses = [CheckoutResidentsViewController getStatus];
+    _statuses = [CheckoutResidentsViewController getStatuses];
 }
 
 - (void)useDocument
@@ -109,7 +109,7 @@
     
     */
     
-    _statuses = [CheckoutResidentsViewController getStatus];
+    _statuses = [CheckoutResidentsViewController getStatuses];
     
    
 }
