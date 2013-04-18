@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 Harding University CS. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+
 #import "CoreDataTableViewController.h"
+
 @interface ResidentsViewController : CoreDataTableViewController
 @property NSArray * residents;
 @property (nonatomic, strong) UIManagedDocument *residentsDatabase;

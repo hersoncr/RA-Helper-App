@@ -19,6 +19,7 @@
 		2E7695421718FFE3002D45B7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7695401718FFE3002D45B7 /* MainStoryboard.storyboard */; };
 		2E76A0E5171F8ADD00BEE0C0 /* Status+Status_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E76A0E4171F8ADD00BEE0C0 /* Status+Status_Create.m */; };
 		2E76A0E8171F992F00BEE0C0 /* ResidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E76A0E7171F992F00BEE0C0 /* ResidentsViewController.m */; };
+		2E76A0ED171F9D7200BEE0C0 /* Resident+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E76A0EC171F9D7200BEE0C0 /* Resident+Create.m */; };
 		2E8BB7CD171CDBD500014413 /* DormModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7CB171CDBD500014413 /* DormModel.xcdatamodeld */; };
 		2E8BB7F1171CDC4200014413 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F0171CDC4200014413 /* Status.m */; };
 		2E8BB7F4171CDC4200014413 /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F3171CDC4200014413 /* DormWing.m */; };
@@ -52,6 +53,8 @@
 		2E76A0E7171F992F00BEE0C0 /* ResidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResidentsViewController.m; sourceTree = "<group>"; };
 		2E76A0E9171F9A3C00BEE0C0 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		2E76A0EA171F9A3C00BEE0C0 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		2E76A0EB171F9D7200BEE0C0 /* Resident+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Resident+Create.h"; sourceTree = "<group>"; };
+		2E76A0EC171F9D7200BEE0C0 /* Resident+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Resident+Create.m"; sourceTree = "<group>"; };
 		2E8BB7CC171CDBD500014413 /* DormModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DormModel.xcdatamodel; sourceTree = "<group>"; };
 		2E8BB7EF171CDC4200014413 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
 		2E8BB7F0171CDC4200014413 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				2E8BB7F0171CDC4200014413 /* Status.m */,
 				2E76A0E3171F8ADD00BEE0C0 /* Status+Status_Create.h */,
 				2E76A0E4171F8ADD00BEE0C0 /* Status+Status_Create.m */,
+				2E76A0EB171F9D7200BEE0C0 /* Resident+Create.h */,
+				2E76A0EC171F9D7200BEE0C0 /* Resident+Create.m */,
 			);
 			name = DataEntities;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				2E8BB7FD171CDC4200014413 /* Room.m in Sources */,
 				2E76A0E5171F8ADD00BEE0C0 /* Status+Status_Create.m in Sources */,
 				2E76A0E8171F992F00BEE0C0 /* ResidentsViewController.m in Sources */,
+				2E76A0ED171F9D7200BEE0C0 /* Resident+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,9 @@
 //
 
 #import "ResidentsViewController.h"
+#import "Resident.h"
+#import "Room.h"
+#import "Resident+Create.h"
 
 @interface ResidentsViewController ()
 
@@ -18,7 +21,78 @@
 
 - (void) setUp
 {
+    if (!self.residentsDatabase) {  // we'll create a default database if none is set
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"Default Residents Database"];
+        // url is now "<Documents Directory>/Default Residents Database"
+        
+        // Now create the document on disk and call the setter for photoDatabase property
+        self.residentsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+        
+        [Resident residentWithFirstName:@"Default" LastName:@"DefaultLastName" Phone:@"000-000-0000" ResidentID:@"00000000" inManagedObjectContext:self.residentsDatabase.managedObjectContext];
+    }
     
+}
+- (void)setResidentsDatabase:(UIManagedDocument *)residentsDatabase
+{
+    // setter for photoDatabase
+    if (_residentsDatabase != residentsDatabase) {
+        _residentsDatabase = residentsDatabase;
+        [self useDocument];
+    }
+}
+
+
+- (void)useDocument
+{   // Open or create the document here and call setupFetchedResultsController
+    
+    if ( ![[NSFileManager defaultManager] fileExistsAtPath:[self.residentsDatabase.fileURL path]] ) {
+        // document does not exist on disk, so create it (using a BLOCK on a separate thread)
+        [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL
+                     forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+                         if (success) {
+                             [self setupFetchedResultsController];
+                         }
+                     }];
+        
+    } else if (self.residentsDatabase.documentState == UIDocumentStateClosed) {
+        // document does exist on disk, but we need to open it (again, we use a separate thread)
+        [self.residentsDatabase openWithCompletionHandler:^(BOOL success) {
+            if (success) {
+                [self setupFetchedResultsController];
+            }
+        }];
+        
+    } else if (self.residentsDatabase.documentState == UIDocumentStateNormal) {
+        // document is already open and ready to use
+        [self setupFetchedResultsController];
+    }
+    
+}
+
+
+// The following method will create an NSFetchRequest to get all Residents and
+// hook it up to our table via an NSFetchedResultsController
+
+- (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
+{
+    // Query the database to see if Resident's first name is already stored there
+    //  (1) Initialize a NSFetchRequest with the desired Entity defined in the DB schema
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resident"];
+    
+    //  (2) Since we want ALL of the residents for this tableView,
+    //      we don't want to specify a predicate
+    
+    
+    //  (3) Add sort keys to the fetch request  (Note the use of "CaseInsensitiveCompare")
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    //  (4) Attach the request to this tableViewController (see Apple Docs)
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.residentsDatabase.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
 }
 
 
@@ -71,6 +145,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    Resident * resident = [self.residents objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",resident.lastName,resident.firstName];
+    cell.detailTextLabel.text = resident.room.roomName;
     
     return cell;
 }

@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Residents-->
+        <!--Residents View Controller - Residents-->
         <scene sceneID="fnG-mZ-SfX">
             <objects>
-                <tableViewController id="3tw-hw-ISk" sceneMemberID="viewController">
+                <tableViewController id="3tw-hw-ISk" customClass="ResidentsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="h0D-uP-rsx">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,6 +149,17 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="CheckoutResidentsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckoutResidentsViewController.h"/>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
