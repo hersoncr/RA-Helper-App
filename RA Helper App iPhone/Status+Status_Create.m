@@ -30,7 +30,8 @@
     if (!statuses || ([statuses count] > 1)) {
         // if nil, there is some type of problem (would be better to handle this, but ... )
         // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
-        if (statuses.count > 1) {
+        if (statuses.count > 1)
+        {
             [context deleteObject:[statuses lastObject]];
         }
         NSLog(@"Error!  statuses = %@",statuses);
@@ -75,7 +76,11 @@
                 statusesNames = [[NSArray alloc] initWithObjects:@"Present",@"Absent",@"Excused", nil];
             }
             for (NSString * name in statusesNames) {
-               [statuses  addObject:[Status statusWithName:name inManagedObjectContext:context]];
+                Status * status =  [Status statusWithName:name inManagedObjectContext:context];
+                
+                if (status) {
+                    [statuses  addObject:status];
+                }
                [context save:nil];
             }
             statusesStatic = statuses;

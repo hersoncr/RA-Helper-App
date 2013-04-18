@@ -40,11 +40,74 @@
                             <outlet property="delegate" destination="3tw-hw-ISk" id="QnY-bL-ML4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Residents" id="ls2-jC-Vf8"/>
+                    <navigationItem key="navigationItem" title="Residents" id="ls2-jC-Vf8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dcI-kE-Edn">
+                            <connections>
+                                <segue destination="NSD-PE-XWX" kind="push" identifier="Add New Resident" id="8QP-Ib-VFa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tp1-eX-PEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="-216"/>
+            <point key="canvasLocation" x="451" y="-225"/>
+        </scene>
+        <!--View Controller - Add New Resident-->
+        <scene sceneID="xdE-L8-Wbt">
+            <objects>
+                <viewController id="NSD-PE-XWX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TOS-Ze-0sV">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A6-Zq-E37">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOe-TV-zUc">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="But-TV-mk4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gd-fw-gp8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HJx-00-8Xr">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uqk-Y8-wGy">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="bVE-sg-S7M"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uqk-Y8-wGy" firstAttribute="trailing" secondItem="TOS-Ze-0sV" secondAttribute="trailing" type="default" id="0Hz-wF-kMu"/>
+                            <constraint firstItem="Uqk-Y8-wGy" firstAttribute="top" secondItem="TOS-Ze-0sV" secondAttribute="top" constant="106" id="6cY-e0-E5l"/>
+                            <constraint firstItem="HJx-00-8Xr" firstAttribute="leading" secondItem="vOe-TV-zUc" secondAttribute="leading" type="default" id="9Mu-Ea-nAF"/>
+                            <constraint firstItem="7A6-Zq-E37" firstAttribute="leading" secondItem="TOS-Ze-0sV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Abk-2c-aly"/>
+                            <constraint firstItem="Uqk-Y8-wGy" firstAttribute="leading" secondItem="TOS-Ze-0sV" secondAttribute="leading" type="default" id="LRT-IT-Tzo"/>
+                            <constraint firstItem="8gd-fw-gp8" firstAttribute="top" secondItem="TOS-Ze-0sV" secondAttribute="top" constant="58" id="Pmm-Qv-to6"/>
+                            <constraint firstItem="vOe-TV-zUc" firstAttribute="top" secondItem="TOS-Ze-0sV" secondAttribute="top" constant="16" id="QM9-mt-McY"/>
+                            <constraint firstItem="vOe-TV-zUc" firstAttribute="trailing" secondItem="HJx-00-8Xr" secondAttribute="trailing" type="default" id="Sdo-QD-9lk"/>
+                            <constraint firstItem="7A6-Zq-E37" firstAttribute="top" secondItem="TOS-Ze-0sV" secondAttribute="top" constant="20" symbolic="YES" type="default" id="awB-u0-zQ7"/>
+                            <constraint firstItem="8gd-fw-gp8" firstAttribute="leading" secondItem="TOS-Ze-0sV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="b4R-vi-600"/>
+                            <constraint firstItem="vOe-TV-zUc" firstAttribute="leading" secondItem="7A6-Zq-E37" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="gNf-0P-XWB"/>
+                            <constraint firstItem="HJx-00-8Xr" firstAttribute="top" secondItem="vOe-TV-zUc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kHQ-v2-B4f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Resident" id="mig-q1-cYH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RmA-rQ-u5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1003" y="-291"/>
         </scene>
         <!--Checkout Residents View Controller - Checkout Rooms-->
         <scene sceneID="5uc-xw-t6q">
@@ -149,6 +212,20 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="CheckoutResidentsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckoutResidentsViewController.h"/>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

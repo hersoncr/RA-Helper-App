@@ -30,6 +30,8 @@
         self.residentsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
         
         
+
+        
     }
     
 }
@@ -58,6 +60,9 @@
                      forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                          if (success) {
                              [self setupFetchedResultsController];
+                             // In case the app should shut down before AUTOSAVING kicks in
+                             [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+                             
                          }
                      }];
         
@@ -66,12 +71,14 @@
         [self.residentsDatabase openWithCompletionHandler:^(BOOL success) {
             if (success) {
                 [self setupFetchedResultsController];
+                [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
             }
         }];
         
     } else if (self.residentsDatabase.documentState == UIDocumentStateNormal) {
         // document is already open and ready to use
         [self setupFetchedResultsController];
+        [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
     }
     
 }
