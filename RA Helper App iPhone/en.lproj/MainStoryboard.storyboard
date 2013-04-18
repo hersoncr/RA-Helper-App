@@ -17,12 +17,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MgC-5R-5mI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="159"/>
+            <point key="canvasLocation" x="-258" y="31"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Checkout Residents View Controller-->
         <scene sceneID="5uc-xw-t6q">
             <objects>
-                <tableViewController id="5gd-ty-lg9" sceneMemberID="viewController">
+                <tableViewController id="5gd-ty-lg9" customClass="CheckoutResidentsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ha5-0k-vV1">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,6 +103,11 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="CheckoutResidentsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckoutResidentsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

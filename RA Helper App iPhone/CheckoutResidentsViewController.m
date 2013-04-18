@@ -5,11 +5,12 @@
 //  Created by Herson Alfaro on 4/13/13.
 //  Copyright (c) 2013 Harding University CS. All rights reserved.
 //
-
+#import <CoreData/CoreData.h>
 #import "CheckoutResidentsViewController.h"
 #import "Status.h"
 #import "Resident.h"
 #import "Room.h"
+#import "AppDelegate.h"
 @interface CheckoutResidentsViewController ()
 @property NSArray *statuses;
 @end
@@ -39,13 +40,29 @@
 
 - (void) setUp
 {
+     
+    NSManagedObjectContext *context = [ managedObjectContext];
+    
+    NSEntityDescription *entityDesctiption = [NSEntityDescription
+                                              entityForName: entityName
+                                              inManagedObjectContext:context];
+    
+    
+    Status * status = (Status *)[NSEntityDescription insertNewObjectForEntityForName:@"Status"
+                                                             inManagedObjectContext:managedObjectContext];
+    status.statusName = @"Present";
+    
+    [managedObjectContext save:nil];
+    
+    
+    
+    
     _statuses = [CheckoutResidentsViewController getStatus];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resident"];
     NSManagedObjectContext *moc = [[[Resident alloc] init] managedObjectContext];
     NSError *error;
     _residents = [moc executeFetchRequest:request error:&error];
-    
 }
 
 - (id)initWithStyle:(UITableViewStyle)style

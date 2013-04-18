@@ -2,7 +2,7 @@
 //  Resident.m
 //  RA Helper App iPhone
 //
-//  Created by Herson Alfaro on 4/13/13.
+//  Created by Herson Alfaro on 4/15/13.
 //  Copyright (c) 2013 Harding University CS. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @implementation Resident
 
-@dynamic residentId;
 @dynamic firstName;
 @dynamic lastName;
 @dynamic phone;
+@dynamic residentId;
 @dynamic checkouts;
 @dynamic room;
 

@@ -2,7 +2,7 @@
 //  Resident.h
 //  RA Helper App iPhone
 //
-//  Created by Herson Alfaro on 4/13/13.
+//  Created by Herson Alfaro on 4/15/13.
 //  Copyright (c) 2013 Harding University CS. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @interface Resident : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * residentId;
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * phone;
+@property (nonatomic, retain) NSNumber * residentId;
 @property (nonatomic, retain) NSSet *checkouts;
 @property (nonatomic, retain) Room *room;
 @end

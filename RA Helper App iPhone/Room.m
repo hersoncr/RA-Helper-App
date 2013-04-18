@@ -2,7 +2,7 @@
 //  Room.m
 //  RA Helper App iPhone
 //
-//  Created by Herson Alfaro on 4/13/13.
+//  Created by Herson Alfaro on 4/15/13.
 //  Copyright (c) 2013 Harding University CS. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 @implementation Room
 
 @dynamic roomName;
-@dynamic wing;
 @dynamic residents;
+@dynamic wing;
 
 @end

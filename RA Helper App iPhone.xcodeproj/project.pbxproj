@@ -17,14 +17,15 @@
 		2E76953D1718FFE3002D45B7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E76953C1718FFE3002D45B7 /* Default@2x.png */; };
 		2E76953F1718FFE3002D45B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E76953E1718FFE3002D45B7 /* Default-568h@2x.png */; };
 		2E7695421718FFE3002D45B7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7695401718FFE3002D45B7 /* MainStoryboard.storyboard */; };
+		2E8BB7CD171CDBD500014413 /* DormModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7CB171CDBD500014413 /* DormModel.xcdatamodeld */; };
+		2E8BB7F1171CDC4200014413 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F0171CDC4200014413 /* Status.m */; };
+		2E8BB7F4171CDC4200014413 /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F3171CDC4200014413 /* DormWing.m */; };
+		2E8BB7F7171CDC4200014413 /* CurfewCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F6171CDC4200014413 /* CurfewCheck.m */; };
+		2E8BB7FA171CDC4200014413 /* Resident.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7F9171CDC4200014413 /* Resident.m */; };
+		2E8BB7FD171CDC4200014413 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BB7FC171CDC4200014413 /* Room.m */; };
+		2E8BB7FF171CDCDB00014413 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8BB7FE171CDCDB00014413 /* CoreData.framework */; };
 		2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */; };
 		2EDF3E3C1719127300CE4614 /* checkouticon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3B1719127300CE4614 /* checkouticon2.png */; };
-		2EDF3E3F1719201D00CE4614 /* DormModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */; };
-		2EDF3E51171934EE00CE4614 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E50171934EE00CE4614 /* Status.m */; };
-		2EDF3E54171934EE00CE4614 /* CurfewCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E53171934EE00CE4614 /* CurfewCheck.m */; };
-		2EDF3E57171934EE00CE4614 /* Resident.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E56171934EE00CE4614 /* Resident.m */; };
-		2EDF3E5A171934EE00CE4614 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E59171934EE00CE4614 /* Room.m */; };
-		2EDF3E5D171934EE00CE4614 /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E5C171934EE00CE4614 /* DormWing.m */; };
 		2EDF3E6117193C5100CE4614 /* CheckoutResidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -43,20 +44,21 @@
 		2E76953C1718FFE3002D45B7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2E76953E1718FFE3002D45B7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2E7695411718FFE3002D45B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2E8BB7CC171CDBD500014413 /* DormModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DormModel.xcdatamodel; sourceTree = "<group>"; };
+		2E8BB7EF171CDC4200014413 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		2E8BB7F0171CDC4200014413 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
+		2E8BB7F2171CDC4200014413 /* DormWing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DormWing.h; sourceTree = "<group>"; };
+		2E8BB7F3171CDC4200014413 /* DormWing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DormWing.m; sourceTree = "<group>"; };
+		2E8BB7F5171CDC4200014413 /* CurfewCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurfewCheck.h; sourceTree = "<group>"; };
+		2E8BB7F6171CDC4200014413 /* CurfewCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurfewCheck.m; sourceTree = "<group>"; };
+		2E8BB7F8171CDC4200014413 /* Resident.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resident.h; sourceTree = "<group>"; };
+		2E8BB7F9171CDC4200014413 /* Resident.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resident.m; sourceTree = "<group>"; };
+		2E8BB7FB171CDC4200014413 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		2E8BB7FC171CDC4200014413 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		2E8BB7FE171CDCDB00014413 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2EDF3E3817190C5F00CE4614 /* MainMenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTabBarController.h; sourceTree = "<group>"; };
 		2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTabBarController.m; sourceTree = "<group>"; };
 		2EDF3E3B1719127300CE4614 /* checkouticon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkouticon2.png; sourceTree = "<group>"; };
-		2EDF3E3E1719201D00CE4614 /* DormModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DormModel.xcdatamodel; sourceTree = "<group>"; };
-		2EDF3E4F171934EE00CE4614 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
-		2EDF3E50171934EE00CE4614 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
-		2EDF3E52171934EE00CE4614 /* CurfewCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurfewCheck.h; sourceTree = "<group>"; };
-		2EDF3E53171934EE00CE4614 /* CurfewCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurfewCheck.m; sourceTree = "<group>"; };
-		2EDF3E55171934EE00CE4614 /* Resident.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resident.h; sourceTree = "<group>"; };
-		2EDF3E56171934EE00CE4614 /* Resident.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resident.m; sourceTree = "<group>"; };
-		2EDF3E58171934EE00CE4614 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
-		2EDF3E59171934EE00CE4614 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
-		2EDF3E5B171934EE00CE4614 /* DormWing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DormWing.h; sourceTree = "<group>"; };
-		2EDF3E5C171934EE00CE4614 /* DormWing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DormWing.m; sourceTree = "<group>"; };
 		2EDF3E5F17193C5100CE4614 /* CheckoutResidentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckoutResidentsViewController.h; sourceTree = "<group>"; };
 		2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckoutResidentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8BB7FF171CDCDB00014413 /* CoreData.framework in Frameworks */,
 				2E7695291718FFE3002D45B7 /* UIKit.framework in Frameworks */,
 				2E76952B1718FFE3002D45B7 /* Foundation.framework in Frameworks */,
 				2E76952D1718FFE3002D45B7 /* CoreGraphics.framework in Frameworks */,
@@ -78,7 +81,7 @@
 		2E76951C1718FFE3002D45B7 = {
 			isa = PBXGroup;
 			children = (
-				2EDF3E5E171934FB00CE4614 /* DataModel */,
+				2E8BB7FE171CDCDB00014413 /* CoreData.framework */,
 				2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */,
 				2E7695271718FFE3002D45B7 /* Frameworks */,
 				2E7695261718FFE3002D45B7 /* Products */,
@@ -106,6 +109,7 @@
 		2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				2E8BB800171CDD0000014413 /* DataEntities */,
 				2E7695371718FFE3002D45B7 /* AppDelegate.h */,
 				2E7695381718FFE3002D45B7 /* AppDelegate.m */,
 				2E7695401718FFE3002D45B7 /* MainStoryboard.storyboard */,
@@ -133,22 +137,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2EDF3E5E171934FB00CE4614 /* DataModel */ = {
+		2E8BB800171CDD0000014413 /* DataEntities */ = {
 			isa = PBXGroup;
 			children = (
-				2EDF3E5B171934EE00CE4614 /* DormWing.h */,
-				2EDF3E5C171934EE00CE4614 /* DormWing.m */,
-				2EDF3E58171934EE00CE4614 /* Room.h */,
-				2EDF3E59171934EE00CE4614 /* Room.m */,
-				2EDF3E55171934EE00CE4614 /* Resident.h */,
-				2EDF3E56171934EE00CE4614 /* Resident.m */,
-				2EDF3E52171934EE00CE4614 /* CurfewCheck.h */,
-				2EDF3E53171934EE00CE4614 /* CurfewCheck.m */,
-				2EDF3E4F171934EE00CE4614 /* Status.h */,
-				2EDF3E50171934EE00CE4614 /* Status.m */,
-				2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */,
+				2E8BB7CB171CDBD500014413 /* DormModel.xcdatamodeld */,
+				2E8BB7FB171CDC4200014413 /* Room.h */,
+				2E8BB7FC171CDC4200014413 /* Room.m */,
+				2E8BB7F8171CDC4200014413 /* Resident.h */,
+				2E8BB7F9171CDC4200014413 /* Resident.m */,
+				2E8BB7F5171CDC4200014413 /* CurfewCheck.h */,
+				2E8BB7F6171CDC4200014413 /* CurfewCheck.m */,
+				2E8BB7F2171CDC4200014413 /* DormWing.h */,
+				2E8BB7F3171CDC4200014413 /* DormWing.m */,
+				2E8BB7EF171CDC4200014413 /* Status.h */,
+				2E8BB7F0171CDC4200014413 /* Status.m */,
 			);
-			name = DataModel;
+			name = DataEntities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,13 +225,13 @@
 				2E7695351718FFE3002D45B7 /* main.m in Sources */,
 				2E7695391718FFE3002D45B7 /* AppDelegate.m in Sources */,
 				2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */,
-				2EDF3E3F1719201D00CE4614 /* DormModel.xcdatamodeld in Sources */,
-				2EDF3E51171934EE00CE4614 /* Status.m in Sources */,
-				2EDF3E54171934EE00CE4614 /* CurfewCheck.m in Sources */,
-				2EDF3E57171934EE00CE4614 /* Resident.m in Sources */,
-				2EDF3E5A171934EE00CE4614 /* Room.m in Sources */,
-				2EDF3E5D171934EE00CE4614 /* DormWing.m in Sources */,
 				2EDF3E6117193C5100CE4614 /* CheckoutResidentsViewController.m in Sources */,
+				2E8BB7CD171CDBD500014413 /* DormModel.xcdatamodeld in Sources */,
+				2E8BB7F1171CDC4200014413 /* Status.m in Sources */,
+				2E8BB7F4171CDC4200014413 /* DormWing.m in Sources */,
+				2E8BB7F7171CDC4200014413 /* CurfewCheck.m in Sources */,
+				2E8BB7FA171CDC4200014413 /* Resident.m in Sources */,
+				2E8BB7FD171CDC4200014413 /* Room.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,12 +359,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2EDF3E3D1719201D00CE4614 /* DormModel.xcdatamodeld */ = {
+		2E8BB7CB171CDBD500014413 /* DormModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2EDF3E3E1719201D00CE4614 /* DormModel.xcdatamodel */,
+				2E8BB7CC171CDBD500014413 /* DormModel.xcdatamodel */,
 			);
-			currentVersion = 2EDF3E3E1719201D00CE4614 /* DormModel.xcdatamodel */;
+			currentVersion = 2E8BB7CC171CDBD500014413 /* DormModel.xcdatamodel */;
 			path = DormModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
