@@ -25,13 +25,13 @@
     </entity>
     <entity name="Status" representedClassName="Status" syncable="YES">
         <attribute name="statusName" attributeType="String" syncable="YES"/>
-        <relationship name="curfewChecks" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="CurfewCheck" inverseName="status" inverseEntity="CurfewCheck" syncable="YES"/>
+        <relationship name="curfewChecks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="CurfewCheck" inverseName="status" inverseEntity="CurfewCheck" syncable="YES"/>
     </entity>
     <elements>
         <element name="CurfewCheck" positionX="-432" positionY="-837" width="126" height="88"/>
+        <element name="DormWing" positionX="-189" positionY="-484" width="128" height="88"/>
         <element name="Resident" positionX="-180" positionY="-963" width="128" height="133"/>
         <element name="Room" positionX="-164" positionY="-702" width="128" height="88"/>
-        <element name="DormWing" positionX="-189" positionY="-484" width="128" height="88"/>
         <element name="Status" positionX="-639" positionY="-981" width="128" height="73"/>
     </elements>
 </model>
