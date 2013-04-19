@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E478ABD1720D91C00661172 /* AddNewRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478ABC1720D91C00661172 /* AddNewRoomViewController.m */; };
+		2E478AC01720D92E00661172 /* AddNewWingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478ABF1720D92E00661172 /* AddNewWingViewController.m */; };
 		2E7695291718FFE3002D45B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7695281718FFE3002D45B7 /* UIKit.framework */; };
 		2E76952B1718FFE3002D45B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952A1718FFE3002D45B7 /* Foundation.framework */; };
 		2E76952D1718FFE3002D45B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952C1718FFE3002D45B7 /* CoreGraphics.framework */; };
@@ -31,10 +33,14 @@
 		2EAF053A171FC1720080613F /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF0539171FC1720080613F /* Room.m */; };
 		2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */; };
 		2EDF3E3C1719127300CE4614 /* checkouticon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3B1719127300CE4614 /* checkouticon2.png */; };
-		2EDF3E6117193C5100CE4614 /* CheckoutResidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */; };
+		2EDF3E6117193C5100CE4614 /* CheckRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E6017193C5100CE4614 /* CheckRoomsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E478ABB1720D91C00661172 /* AddNewRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewRoomViewController.h; sourceTree = "<group>"; };
+		2E478ABC1720D91C00661172 /* AddNewRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewRoomViewController.m; sourceTree = "<group>"; };
+		2E478ABE1720D92E00661172 /* AddNewWingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewWingViewController.h; sourceTree = "<group>"; };
+		2E478ABF1720D92E00661172 /* AddNewWingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewWingViewController.m; sourceTree = "<group>"; };
 		2E7695251718FFE3002D45B7 /* RA Helper App iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RA Helper App iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7695281718FFE3002D45B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E76952A1718FFE3002D45B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,8 +80,8 @@
 		2EDF3E3817190C5F00CE4614 /* MainMenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTabBarController.h; sourceTree = "<group>"; };
 		2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTabBarController.m; sourceTree = "<group>"; };
 		2EDF3E3B1719127300CE4614 /* checkouticon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkouticon2.png; sourceTree = "<group>"; };
-		2EDF3E5F17193C5100CE4614 /* CheckoutResidentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckoutResidentsViewController.h; sourceTree = "<group>"; };
-		2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckoutResidentsViewController.m; sourceTree = "<group>"; };
+		2EDF3E5F17193C5100CE4614 /* CheckRoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckRoomsViewController.h; sourceTree = "<group>"; };
+		2EDF3E6017193C5100CE4614 /* CheckRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckRoomsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,14 +137,18 @@
 				2EDF3E3817190C5F00CE4614 /* MainMenuTabBarController.h */,
 				2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */,
 				2E76952F1718FFE3002D45B7 /* Supporting Files */,
-				2EDF3E5F17193C5100CE4614 /* CheckoutResidentsViewController.h */,
-				2EDF3E6017193C5100CE4614 /* CheckoutResidentsViewController.m */,
+				2EDF3E5F17193C5100CE4614 /* CheckRoomsViewController.h */,
+				2EDF3E6017193C5100CE4614 /* CheckRoomsViewController.m */,
 				2E76A0E6171F992F00BEE0C0 /* ResidentsViewController.h */,
 				2E76A0E7171F992F00BEE0C0 /* ResidentsViewController.m */,
 				2E76A0EE171FA76300BEE0C0 /* CoreDataTableViewController.h */,
 				2E76A0EF171FA76400BEE0C0 /* CoreDataTableViewController.m */,
 				2EA31CE3171FD87000A7500D /* AddResidentViewController.h */,
 				2EA31CE4171FD87000A7500D /* AddResidentViewController.m */,
+				2E478ABB1720D91C00661172 /* AddNewRoomViewController.h */,
+				2E478ABC1720D91C00661172 /* AddNewRoomViewController.m */,
+				2E478ABE1720D92E00661172 /* AddNewWingViewController.h */,
+				2E478ABF1720D92E00661172 /* AddNewWingViewController.m */,
 			);
 			path = "RA Helper App iPhone";
 			sourceTree = "<group>";
@@ -250,7 +260,7 @@
 				2E7695351718FFE3002D45B7 /* main.m in Sources */,
 				2E7695391718FFE3002D45B7 /* AppDelegate.m in Sources */,
 				2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */,
-				2EDF3E6117193C5100CE4614 /* CheckoutResidentsViewController.m in Sources */,
+				2EDF3E6117193C5100CE4614 /* CheckRoomsViewController.m in Sources */,
 				2E8BB7CD171CDBD500014413 /* DormModel.xcdatamodeld in Sources */,
 				2E76A0E5171F8ADD00BEE0C0 /* Status+Status_Create.m in Sources */,
 				2E76A0E8171F992F00BEE0C0 /* ResidentsViewController.m in Sources */,
@@ -262,6 +272,8 @@
 				2EAF0537171FC1710080613F /* DormWing.m in Sources */,
 				2EAF053A171FC1720080613F /* Room.m in Sources */,
 				2EA31CE5171FD87000A7500D /* AddResidentViewController.m in Sources */,
+				2E478ABD1720D91C00661172 /* AddNewRoomViewController.m in Sources */,
+				2E478AC01720D92E00661172 /* AddNewWingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,19 +6,19 @@
 //  Copyright (c) 2013 Harding University CS. All rights reserved.
 //
 #import <CoreData/CoreData.h>
-#import "CheckoutResidentsViewController.h"
+#import "CheckRoomsViewController.h"
 #import "Status.h"
 #import "Resident.h"
 #import "Room.h"
 #import "AppDelegate.h"
 #import "Status+Status_Create.h"
-@interface CheckoutResidentsViewController ()
+@interface CheckRoomsViewController ()
 @property NSArray *statuses;
 @end
 
 
 
-@implementation CheckoutResidentsViewController
+@implementation CheckRoomsViewController
 @synthesize residents = _residents;
 @synthesize statuses = _statuses;
 @synthesize statusDatabase = _statusDatabase;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckoutResidentsViewController : UITableViewController
+@interface CheckRoomsViewController : UITableViewController
 @property NSArray * residents;
 @property (nonatomic, strong) UIManagedDocument *statusDatabase;
 - (NSArray *) getStatuses ;
