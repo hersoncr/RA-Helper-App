@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddNewRoomViewController : UIViewController
+@interface AddNewRoomViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *roomNameTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *wingsPickerViewOutlet;
 @property (nonatomic, strong) UIManagedDocument *roomsDatabase;
+@property NSArray * wingsArray;
 @end

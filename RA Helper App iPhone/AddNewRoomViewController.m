@@ -8,25 +8,37 @@
 
 #import "AddNewRoomViewController.h"
 #import "Room+Create.h"
+#import "DormWing+Create.h"
 @interface AddNewRoomViewController ()
-
+@property (nonatomic, strong) UIManagedDocument * wingsDataSource;
 @end
 
 @implementation AddNewRoomViewController
 @synthesize roomsDatabase = _roomsDatabase;
 @synthesize wingsPickerViewOutlet = _wingsPickerViewOutlet;
 @synthesize roomNameTextField = _roomNameTextField;
-
+@synthesize wingsArray = _wingsArray;
+@synthesize wingsDataSource = _wingsDataSource;
 
 - (void) setRoomsDatabase:(UIManagedDocument *)roomsDatabase
 {
     if (_roomsDatabase!= roomsDatabase) {
         _roomsDatabase = roomsDatabase;
-        [self useDocument];
+        [self useDocument:roomsDatabase];
+    }
+}
+
+- (void) setWingsDataSource:(UIManagedDocument *)wingsDataSource
+{
+    if (_wingsDataSource!= wingsDataSource) {
+        _wingsDataSource = wingsDataSource;
+        [self useDocument:wingsDataSource];
     }
 }
 - (void) setUp
 {
+    self.wingsPickerViewOutlet.delegate = self;
+    self.wingsPickerViewOutlet.dataSource = self;
     
     if (!self.roomsDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -37,29 +49,39 @@
         self.roomsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
         
     }
+    
+    if (!self.wingsDataSource) {  // we'll create a default database if none is set
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"Default Wings Database"];
+        // url is now "<Documents Directory>/Default Status Database"
+        
+        // Now create the document on disk and call the setter for statusDatabase property
+        self.wingsDataSource = [[UIManagedDocument alloc] initWithFileURL:url];
+        self.wingsArray = [DormWing getAllDormWingsWithContext:self.wingsDataSource.managedObjectContext];
+    }
 }
 
-- (void)useDocument
+- (void)useDocument:(UIManagedDocument *) document
 {   // Open or create the document here and call setupFetchedResultsController
     
-    if ( ![[NSFileManager defaultManager] fileExistsAtPath:[self.roomsDatabase.fileURL path]] ) {
+    if ( ![[NSFileManager defaultManager] fileExistsAtPath:[document.fileURL path]] ) {
         // document does not exist on disk, so create it (using a BLOCK on a separate thread)
-        [self.roomsDatabase saveToURL:self.roomsDatabase.fileURL
+        [document saveToURL:document.fileURL
                      forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                          if (success) {
                              //[self populateStatusDatabaseWithDefaults];
                          }
                      }];
         
-    } else if (self.roomsDatabase.documentState == UIDocumentStateClosed) {
+    } else if (document.documentState == UIDocumentStateClosed) {
         // document does exist on disk, but we need to open it (again, we use a separate thread)
-        [self.roomsDatabase openWithCompletionHandler:^(BOOL success) {
+        [document openWithCompletionHandler:^(BOOL success) {
             if (success) {
                 //[self populateStatusDatabaseWithDefaults];
             }
         }];
         
-    } else if (self.roomsDatabase.documentState == UIDocumentStateNormal) {
+    } else if (document.documentState == UIDocumentStateNormal) {
         // document is already open and ready to use
         //[self populateStatusDatabaseWithDefaults];
     }
@@ -82,8 +104,10 @@
     
     if (!self.roomNameTextField.text || ![self.roomNameTextField.text isEqualToString:@""])
     {
-        Room * dormWing = [Room roomWithName:self.roomNameTextField.text inWing:self.wingsPickerViewOutlet. andWithContext:self.ro
-        message = [NSString stringWithFormat:@"You added successfully a new dorm wing: %@",dormWing.wingName];
+        int selectedIndex = [self.wingsPickerViewOutlet selectedRowInComponent:0];
+
+        Room * room = [Room roomWithName:self.roomNameTextField.text inWing:[self.wingsArray objectAtIndex:selectedIndex] andWithContext:self.roomsDatabase.managedObjectContext];
+        message = [NSString stringWithFormat:@"You added successfully a new dorm wing: %@",room.roomName];
     }else {
         message = @"Your room name must not be empty.";
     }
@@ -109,6 +133,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.wingsArray.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self.wingsArray objectAtIndex:row];
 }
 
 @end

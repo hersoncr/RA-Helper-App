@@ -10,4 +10,6 @@
 
 @interface Room (Create)
 + (Room *) roomWithName:(NSString *) roomName inWing:(NSString *) wingName andWithContext:(NSManagedObjectContext *) context;
+
+
 @end

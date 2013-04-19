@@ -10,4 +10,7 @@
 
 @interface DormWing (Create)
 + (DormWing *) dormWingWithName:(NSString *)dormWingName inContext:(NSManagedObjectContext *) context;
+
++ (NSArray *) getAllDormWingsWithContext:(NSManagedObjectContext *) context;
+
 @end

@@ -51,4 +51,27 @@
     
     return dormWing;
 }
++ (NSArray *) getAllDormWingsWithContext:(NSManagedObjectContext *)context
+{
+    static NSArray * dormWings = nil;
+    if(!dormWings)
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DormWing"];
+        NSError *error = nil;
+        dormWings = [context executeFetchRequest:request error:&error];
+        
+        if (!dormWings ) {
+            // if nil, there is some type of problem (would be better to handle this, but ... )
+            // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
+            NSLog(@"Error!  dormWings = %@",dormWings);
+        }else if([dormWings count] == 0)
+        {
+            dormWings = [[NSArray alloc] init];
+        }else{
+            [context save:nil];
+        }
+    }
+    
+    return dormWings;
+}
 @end
