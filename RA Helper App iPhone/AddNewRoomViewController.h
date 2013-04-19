@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AddNewRoomViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITextField *roomNameTextField;
+@property (weak, nonatomic) IBOutlet UIPickerView *wingsPickerViewOutlet;
+@property (nonatomic, strong) UIManagedDocument *roomsDatabase;
 @end

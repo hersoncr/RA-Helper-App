@@ -7,13 +7,15 @@
 //
 
 #import "AddNewWingViewController.h"
-
+#import "DormWing+Create.h"
 @interface AddNewWingViewController ()
 
 @end
 
 @implementation AddNewWingViewController
 @synthesize wingsDatabase = _wingsDatabase;
+@synthesize wingNameTextField = _wingNameTextField;
+
 
 - (void) setWingsDatabase:(UIManagedDocument *)wingsDatabase
 {
@@ -64,9 +66,27 @@
     }
 }
 - (IBAction)addNewWingAction:(id)sender {
+    NSString *message = nil;
     
+    //[NSString stringWithFormat:@"You selected: %@",];
+    
+    if (!self.wingNameTextField.text || ![self.wingNameTextField.text isEqualToString:@""])
+    {
+        DormWing * dormWing = [DormWing dormWingWithName:self.wingNameTextField.text inContext:self.wingsDatabase.managedObjectContext];
+        [self.wingsDatabase.managedObjectContext save:nil];
+        message = [NSString stringWithFormat:@"You added successfully a new dorm wing: %@",dormWing.wingName];
+    }else {
+        message = @"Your wing name must not be empty.";
+    }
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:message delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil];
+    [alert show];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)cancelAddNewWing:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

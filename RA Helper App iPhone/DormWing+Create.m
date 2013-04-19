@@ -33,7 +33,7 @@
         {
             [context deleteObject:[dormWings lastObject]];
         }
-        NSLog(@"Error!  rooms = %@",dormWings);
+        NSLog(@"Error!  dormWings = %@",dormWings);
         
         
     } else if ([dormWings count] == 0) {
