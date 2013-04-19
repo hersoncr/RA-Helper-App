@@ -73,11 +73,13 @@
     if (!self.wingNameTextField.text || ![self.wingNameTextField.text isEqualToString:@""])
     {
         DormWing * dormWing = [DormWing dormWingWithName:self.wingNameTextField.text inContext:self.wingsDatabase.managedObjectContext];
-        if([self.wingsDatabase.managedObjectContext save:nil])
+        
+        NSError * error = nil;
+        if([self.wingsDatabase.managedObjectContext save:&error])
         {
             message = [NSString stringWithFormat:@"You added successfully a new dorm wing: %@",dormWing.wingName];
         }else{
-            message = @"An error ocurred while inserting record";
+            message = [NSString stringWithFormat:@"An error ocurred while inserting record, description: %@",[error description]];
         }
     }else {
         message = @"Your wing name must not be empty.";
