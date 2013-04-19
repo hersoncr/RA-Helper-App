@@ -70,9 +70,10 @@
     
     //[NSString stringWithFormat:@"You selected: %@",];
     
-    if (!self.wingNameTextField.text || ![self.wingNameTextField.text isEqualToString:@""])
+    if (!self.wingNameTextField.text || ![self.wingNameTextField.text isEqualToString:@""]
+        || !self.dormNameTextField.text || ![self.dormNameTextField.text isEqualToString:@""])
     {
-        DormWing * dormWing = [DormWing dormWingWithName:self.wingNameTextField.text inContext:self.wingsDatabase.managedObjectContext];
+        DormWing * dormWing = [DormWing dormWingWithName:self.wingNameTextField.text AndWithDormName:self.dormNameTextField.text inContext:self.wingsDatabase.managedObjectContext];
         
         NSError * error = nil;
         if([self.wingsDatabase.managedObjectContext save:&error])

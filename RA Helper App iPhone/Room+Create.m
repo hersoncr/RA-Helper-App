@@ -42,7 +42,7 @@
                                                inManagedObjectContext:context];
         // and set its attribute
         room.roomName = roomName;
-        room.wing = [DormWing dormWingWithName:wingName inContext:context];
+        room.wing = [DormWing dormWingWithName:wingName AndWithDormName:@"" inContext:context];
         
     } else {
         // Found matching entry in database.  Return it!

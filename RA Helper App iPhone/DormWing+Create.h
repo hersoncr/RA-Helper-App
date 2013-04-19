@@ -9,7 +9,7 @@
 #import "DormWing.h"
 
 @interface DormWing (Create)
-+ (DormWing *) dormWingWithName:(NSString *)dormWingName inContext:(NSManagedObjectContext *) context;
++ (DormWing *) dormWingWithName:(NSString *)dormWingName AndWithDormName:(NSString *)dormName inContext:(NSManagedObjectContext *) context;
 
 + (NSArray *) getAllDormWingsWithContext:(NSManagedObjectContext *) context;
 

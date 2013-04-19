@@ -10,5 +10,6 @@
 
 @interface AddNewWingViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *wingNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *dormNameTextField;
 @property (nonatomic, strong) UIManagedDocument *wingsDatabase;
 @end

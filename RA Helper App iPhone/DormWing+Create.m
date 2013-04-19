@@ -9,7 +9,7 @@
 #import "DormWing+Create.h"
 
 @implementation DormWing (Create)
-+ (DormWing *) dormWingWithName:(NSString *)dormWingName inContext:(NSManagedObjectContext *) context
++ (DormWing *) dormWingWithName:(NSString *)dormWingName AndWithDormName:(NSString *)dormName inContext:(NSManagedObjectContext *) context
 {
     DormWing *dormWing = nil;
     
@@ -42,7 +42,7 @@
                                              inManagedObjectContext:context];
         // and set its attribute
         dormWing.wingName = dormWingName;
-        
+        dormWing.dorm = dormName;
         
     } else {
         // Found matching entry in database.  Return it!
@@ -54,7 +54,7 @@
 + (NSArray *) getAllDormWingsWithContext:(NSManagedObjectContext *)context
 {
     static NSArray * dormWings = nil;
-    if(!dormWings)
+    if(!dormWings || dormWings.count == 0)
     {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DormWing"];
         NSError *error = nil;

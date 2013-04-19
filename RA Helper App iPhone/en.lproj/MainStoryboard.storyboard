@@ -301,7 +301,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="wing name" minimumFontSize="17" id="N5q-rh-ddc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wing name" minimumFontSize="17" id="N5q-rh-ddc">
                                 <rect key="frame" x="129" y="26" width="171" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -355,6 +355,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CDL-dr-FE0"/>
                     <connections>
+                        <outlet property="dormNameTextField" destination="daF-WF-zDQ" id="wtR-tf-lH5"/>
                         <outlet property="wingNameTextField" destination="N5q-rh-ddc" id="DTd-aS-8P4"/>
                     </connections>
                 </viewController>
@@ -505,44 +506,6 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="AddNewRoomViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewRoomAction:"/>
-                <relationship kind="action" name="cancelNewRoomAction:"/>
-                <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="AddNewWingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewWingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewWingAction:"/>
-                <relationship kind="action" name="cancelAddNewWing:"/>
-                <relationship kind="outlet" name="wingNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddResidentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddResidentViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewResidentAction:"/>
-                <relationship kind="outlet" name="firstNameOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="pickerViewOutlet" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="studentIDOutlet" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
