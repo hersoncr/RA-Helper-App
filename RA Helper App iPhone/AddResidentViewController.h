@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameOutlet;
 @property (weak, nonatomic) IBOutlet UITextField *phoneOutlet;
 @property (weak, nonatomic) IBOutlet UITextField *studentIDOutlet;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollViewOutlet;
+
 @property NSArray * pickerViewDataSource;
 @end

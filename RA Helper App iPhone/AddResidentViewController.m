@@ -13,6 +13,7 @@
 @end
 
 @implementation AddResidentViewController
+@synthesize scrollViewOutlet = _scrollViewOutlet;
 @synthesize pickerViewOutlet = _pickerViewOutlet;
 @synthesize pickerViewDataSource = _pickerViewDataSource;
 @synthesize firstNameOutlet = _firstNameOutlet;
@@ -22,9 +23,12 @@
 
 - (void) setUp
 {
-    _pickerViewDataSource = [[NSArray alloc] initWithObjects:@"218",@"217",@"216", nil];
+    _pickerViewDataSource = [[NSArray alloc] initWithObjects:@"218",@"217",@"216",@"318", nil];
     _pickerViewOutlet.dataSource = self;
     _pickerViewOutlet.delegate = self;
+    UIView * subView = [self.scrollViewOutlet.subviews objectAtIndex:0];
+    self.scrollViewOutlet.contentSize = CGSizeMake(subView.bounds.size.width, subView.bounds.size.height);
+    NSLog(@"height = %g, width = %g ",subView.bounds.size.height, subView.bounds.size.width);
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,23 +39,19 @@
     }
     return self;
 }
-- (IBAction)addNewResidentAction {
-    int selectedIndex = [self.pickerViewOutlet selectedRowInComponent:0];
-    NSString *message = [NSString stringWithFormat:@"You selected: %@",[self.pickerViewDataSource objectAtIndex:selectedIndex]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:message delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil];
-    [alert show];
-    
-}
-- (IBAction)cancelAddingNewResidentAction {
-    
-    
-}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setUp];
 	// Do any additional setup after loading the view.
+}
+- (IBAction)addNewResidentAction:(id)sender {
+    int selectedIndex = [self.pickerViewOutlet selectedRowInComponent:0];
+    NSString *message = [NSString stringWithFormat:@"You selected: %@",[self.pickerViewDataSource objectAtIndex:selectedIndex]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:message delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning
