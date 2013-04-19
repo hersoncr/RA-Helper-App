@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddNewWingViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITextField *wingNameTextField;
+@property (nonatomic, strong) UIManagedDocument *wingsDatabase;
 @end

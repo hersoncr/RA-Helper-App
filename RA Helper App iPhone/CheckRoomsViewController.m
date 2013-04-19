@@ -26,7 +26,7 @@
 
 - (void)setStatusDatabase:(UIManagedDocument *)statusDatabase
 {
-    // setter for photoDatabase
+    // setter for statusDatabase
     if (_statusDatabase != statusDatabase) {
         _statusDatabase = statusDatabase;
         [self useDocument];

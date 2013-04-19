@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E478ABD1720D91C00661172 /* AddNewRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478ABC1720D91C00661172 /* AddNewRoomViewController.m */; };
 		2E478AC01720D92E00661172 /* AddNewWingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478ABF1720D92E00661172 /* AddNewWingViewController.m */; };
+		2E478AC31720FE5100661172 /* Room+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478AC21720FE5100661172 /* Room+Create.m */; };
+		2E478AC91721005A00661172 /* DormWing+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478AC81721005A00661172 /* DormWing+Create.m */; };
 		2E7695291718FFE3002D45B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7695281718FFE3002D45B7 /* UIKit.framework */; };
 		2E76952B1718FFE3002D45B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952A1718FFE3002D45B7 /* Foundation.framework */; };
 		2E76952D1718FFE3002D45B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952C1718FFE3002D45B7 /* CoreGraphics.framework */; };
@@ -41,6 +43,10 @@
 		2E478ABC1720D91C00661172 /* AddNewRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewRoomViewController.m; sourceTree = "<group>"; };
 		2E478ABE1720D92E00661172 /* AddNewWingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewWingViewController.h; sourceTree = "<group>"; };
 		2E478ABF1720D92E00661172 /* AddNewWingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewWingViewController.m; sourceTree = "<group>"; };
+		2E478AC11720FE5100661172 /* Room+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Room+Create.h"; sourceTree = "<group>"; };
+		2E478AC21720FE5100661172 /* Room+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Room+Create.m"; sourceTree = "<group>"; };
+		2E478AC71721005A00661172 /* DormWing+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DormWing+Create.h"; sourceTree = "<group>"; };
+		2E478AC81721005A00661172 /* DormWing+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DormWing+Create.m"; sourceTree = "<group>"; };
 		2E7695251718FFE3002D45B7 /* RA Helper App iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RA Helper App iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7695281718FFE3002D45B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E76952A1718FFE3002D45B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -186,6 +192,10 @@
 				2E76A0E4171F8ADD00BEE0C0 /* Status+Status_Create.m */,
 				2E76A0EB171F9D7200BEE0C0 /* Resident+Create.h */,
 				2E76A0EC171F9D7200BEE0C0 /* Resident+Create.m */,
+				2E478AC11720FE5100661172 /* Room+Create.h */,
+				2E478AC21720FE5100661172 /* Room+Create.m */,
+				2E478AC71721005A00661172 /* DormWing+Create.h */,
+				2E478AC81721005A00661172 /* DormWing+Create.m */,
 			);
 			name = DataEntities;
 			sourceTree = "<group>";
@@ -274,6 +284,8 @@
 				2EA31CE5171FD87000A7500D /* AddResidentViewController.m in Sources */,
 				2E478ABD1720D91C00661172 /* AddNewRoomViewController.m in Sources */,
 				2E478AC01720D92E00661172 /* AddNewWingViewController.m in Sources */,
+				2E478AC31720FE5100661172 /* Room+Create.m in Sources */,
+				2E478AC91721005A00661172 /* DormWing+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
