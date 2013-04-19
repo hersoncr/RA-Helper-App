@@ -11,5 +11,5 @@
 @interface Room (Create)
 + (Room *) roomWithName:(NSString *) roomName inWing:(NSString *) wingName andWithContext:(NSManagedObjectContext *) context;
 
-
++ (NSArray *) getAllRoomsWithContext:(NSManagedObjectContext *)context;
 @end

@@ -67,7 +67,7 @@
         
         // Now create the document on disk and call the setter for statusDatabase property
         self.roomsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
-        
+        self.pickerViewDataSource = [Room getAllRoomsWithContext:self.roomsDatabase.managedObjectContext];
     }
 
     

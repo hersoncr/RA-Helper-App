@@ -59,6 +59,10 @@
         self.wingsDataSource = [[UIManagedDocument alloc] initWithFileURL:url];
         self.wingsArray = [DormWing getAllDormWingsWithContext:self.wingsDataSource.managedObjectContext];
     }
+    
+    UIView * subView = [self.scrollViewOutlet.subviews objectAtIndex:0];
+    self.scrollViewOutlet.contentSize = CGSizeMake(subView.bounds.size.width, subView.bounds.size.height);
+    NSLog(@"height = %g, width = %g ",subView.bounds.size.height, subView.bounds.size.width);
 }
 
 - (void)useDocument:(UIManagedDocument *) document
@@ -102,11 +106,13 @@
     
     //[NSString stringWithFormat:@"You selected: %@",];
     
-    if (!self.roomNameTextField.text || ![self.roomNameTextField.text isEqualToString:@""])
+    if (!self.roomNameTextField.text || ![self.roomNameTextField.text isEqualToString:@""]
+            || [self.wingsPickerViewOutlet selectedRowInComponent:0]!= -1 || ![self.wingsArray objectAtIndex:[self.wingsPickerViewOutlet selectedRowInComponent:0]])
     {
         int selectedIndex = [self.wingsPickerViewOutlet selectedRowInComponent:0];
 
         Room * room = [Room roomWithName:self.roomNameTextField.text inWing:[self.wingsArray objectAtIndex:selectedIndex] andWithContext:self.roomsDatabase.managedObjectContext];
+        [self.wingsDataSource.managedObjectContext save:nil];
         message = [NSString stringWithFormat:@"You added successfully a new dorm wing: %@",room.roomName];
     }else {
         message = @"Your room name must not be empty.";
