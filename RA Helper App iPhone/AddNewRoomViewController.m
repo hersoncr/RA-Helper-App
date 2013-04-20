@@ -20,13 +20,6 @@
 @synthesize wingsArray = _wingsArray;
 @synthesize wingsDataSource = _wingsDataSource;
 
-- (void) setRoomsDatabase:(UIManagedDocument *)roomsDatabase
-{
-    if (_roomsDatabase!= roomsDatabase) {
-        _roomsDatabase = roomsDatabase;
-        [self useDocument:roomsDatabase];
-    }
-}
 
 - (void) setWingsDataSource:(UIManagedDocument *)wingsDataSource
 {
@@ -40,15 +33,7 @@
     self.wingsPickerViewOutlet.delegate = self;
     self.wingsPickerViewOutlet.dataSource = self;
     
-    if (!self.roomsDatabase) {  // we'll create a default database if none is set
-        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default APP Database"];
-        // url is now "<Documents Directory>/Default Status Database"
-        
-        // Now create the document on disk and call the setter for statusDatabase property
-        self.roomsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
-        
-    }
+    
     
     if (!self.wingsDataSource) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -124,10 +109,10 @@
     {
         int selectedIndex = [self.wingsPickerViewOutlet selectedRowInComponent:0];
         DormWing * dormWing = [self.wingsArray objectAtIndex:selectedIndex];
-        Room * room = [Room roomWithName:self.roomNameTextField.text inWing:dormWing andWithContext:self.roomsDatabase.managedObjectContext];
+        Room * room = [Room roomWithName:self.roomNameTextField.text inWing:dormWing andWithContext:self.wingsDataSource.managedObjectContext];
         
         NSError * error = nil;
-        if ([self.roomsDatabase.managedObjectContext save:&error] && [self.wingsDataSource.managedObjectContext save:&error]) {
+        if ([self.wingsDataSource.managedObjectContext save:&error]) {
             
             
             message = [NSString stringWithFormat:@"You added successfully a new dorm room: %@ in wing = %@",room.roomName,room.wing.wingName];

@@ -28,6 +28,7 @@
 - (NSDate *) getTodayDate{
 
     NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    [comps setHour:0];
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
     
 }
@@ -52,9 +53,7 @@
     //  (1) Initialize a NSFetchRequest with the desired Entity defined in the DB schema
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CurfewCheck"];
     
-    //  (2) Since we want ALL of the residents for this tableView,
-    //      we don't want to specify a predicate
-    
+    //  (2) predicate: we only want today's records
     request.predicate = [NSPredicate predicateWithFormat:@"date = %@", [self getTodayDate]];
     
     //  (3) Add sort keys to the fetch request 
@@ -119,6 +118,7 @@
 }
 - (void) populateCheckCurfewForAllResidentsIn:(NSDate *) date
 {
+    
     Status * absentStatus = [Status statusWithName:@"Absent" inManagedObjectContext:self.statusDatabase.managedObjectContext];
     NSArray * residents = [Resident getAllResidentsInContext:self.statusDatabase.managedObjectContext];
     
@@ -138,6 +138,7 @@
 
 - (void) setUp
 {
+    self.statusDatabase = nil;
     if (!self.statusDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"Default APP Database"];
@@ -148,7 +149,7 @@
         
     }
     [self populateStatusDatabaseWithDefaults];
-    [self populateCheckCurfewForAllResidentsIn:[NSDate date]];
+    [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
     
     
    
