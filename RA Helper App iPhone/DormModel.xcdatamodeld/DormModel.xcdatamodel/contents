@@ -3,7 +3,7 @@
     <entity name="CurfewCheck" representedClassName="CurfewCheck" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="residentId" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Resident" inverseName="checkouts" inverseEntity="Resident" syncable="YES"/>
-        <relationship name="status" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Status" inverseName="curfewChecks" inverseEntity="Status" syncable="YES"/>
+        <relationship name="status" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Status" inverseName="curfewChecks" inverseEntity="Status" syncable="YES"/>
     </entity>
     <entity name="DormWing" representedClassName="DormWing" syncable="YES">
         <attribute name="dorm" attributeType="String" syncable="YES"/>

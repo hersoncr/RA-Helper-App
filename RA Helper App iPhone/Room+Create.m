@@ -54,22 +54,21 @@
 
 + (NSArray *) getAllRoomsWithContext:(NSManagedObjectContext *)context
 {
-    static NSArray * rooms = nil;
-    if(!rooms || rooms.count== 0)
-    {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
-        NSError *error = nil;
-        rooms = [context executeFetchRequest:request error:&error];
+    NSArray * rooms = nil;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
+    NSError *error = nil;
+    rooms = [context executeFetchRequest:request error:&error];
         
-        if (!rooms ) {
-            // if nil, there is some type of problem (would be better to handle this, but ... )
-            // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
-            NSLog(@"Error!  rooms = %@",rooms);
-        }else if([rooms count] == 0)
-        {
-            rooms = [[NSArray alloc] init];
-        }
+    if (!rooms ) {
+        // if nil, there is some type of problem (would be better to handle this, but ... )
+        // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
+        NSLog(@"Error!  rooms = %@",rooms);
+    }else if([rooms count] == 0)
+    {
+        rooms = [[NSArray alloc] init];
     }
+    
     
     return rooms;
 }

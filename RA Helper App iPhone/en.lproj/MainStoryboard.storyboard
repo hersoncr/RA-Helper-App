@@ -233,8 +233,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="6kk-8G-1ZQ" kind="relationship" relationship="viewControllers" id="8xn-2T-BYC"/>
                         <segue destination="ATT-gd-kI7" kind="relationship" relationship="viewControllers" id="IOX-QB-9Aj"/>
+                        <segue destination="6kk-8G-1ZQ" kind="relationship" relationship="viewControllers" id="8xn-2T-BYC"/>
                         <segue destination="4kk-hx-3I0" kind="relationship" relationship="viewControllers" id="5vi-Xz-pR6"/>
                     </connections>
                 </tabBarController>
@@ -509,48 +509,6 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="AddNewRoomViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewRoomAction:"/>
-                <relationship kind="action" name="cancelNewRoomAction:"/>
-                <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="AddNewWingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewWingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewWingAction:"/>
-                <relationship kind="action" name="cancelAddNewWing:"/>
-                <relationship kind="outlet" name="dormNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="wingNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddResidentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddResidentViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewResidentAction:"/>
-                <relationship kind="outlet" name="firstNameOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="pickerViewOutlet" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="studentIDOutlet" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CheckRoomsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckRoomsViewController.h"/>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -38,6 +38,27 @@
     _statuses = [self getStatuses];
 }
 
+- (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
+{
+    // Query the database to see if Resident's first name is already stored there
+    //  (1) Initialize a NSFetchRequest with the desired Entity defined in the DB schema
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resident"];
+    
+    //  (2) Since we want ALL of the residents for this tableView,
+    //      we don't want to specify a predicate
+    
+    
+    //  (3) Add sort keys to the fetch request  (Note the use of "CaseInsensitiveCompare")
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    //  (4) Attach the request to this tableViewController (see Apple Docs)
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.statusDatabase.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+}
+
 - (void)useDocument
 {   // Open or create the document here and call setupFetchedResultsController
     
@@ -47,6 +68,9 @@
                      forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                          if (success) {
                              [self populateStatusDatabaseWithDefaults];
+                             [self setupFetchedResultsController];
+                             // In case the app should shut down before AUTOSAVING kicks in
+                             [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
                          }
                      }];
         
@@ -55,12 +79,18 @@
         [self.statusDatabase openWithCompletionHandler:^(BOOL success) {
             if (success) {
                 [self populateStatusDatabaseWithDefaults];
+                [self setupFetchedResultsController];
+                // In case the app should shut down before AUTOSAVING kicks in
+                [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
             }
         }];
         
     } else if (self.statusDatabase.documentState == UIDocumentStateNormal) {
         // document is already open and ready to use
         [self populateStatusDatabaseWithDefaults];
+        [self setupFetchedResultsController];
+        // In case the app should shut down before AUTOSAVING kicks in
+        [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
     }
     
 }
@@ -135,7 +165,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.residents count];
+    return [self.fetchedResultsController.fetchedObjects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,7 +174,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Resident * resident = [self.residents objectAtIndex:indexPath.row];
+    Resident * resident = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",resident.lastName,resident.firstName];
     cell.detailTextLabel.text = resident.room.roomName;
     

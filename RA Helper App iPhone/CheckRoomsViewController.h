@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CheckRoomsViewController : UITableViewController
+#import "CoreDataTableViewController.h"
+@interface CheckRoomsViewController : CoreDataTableViewController
 @property NSArray * residents;
 @property (nonatomic, strong) UIManagedDocument *statusDatabase;
 - (NSArray *) getStatuses ;

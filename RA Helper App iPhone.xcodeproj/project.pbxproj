@@ -33,6 +33,7 @@
 		2EAF0534171FC1710080613F /* CurfewCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF0533171FC1710080613F /* CurfewCheck.m */; };
 		2EAF0537171FC1710080613F /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF0536171FC1710080613F /* DormWing.m */; };
 		2EAF053A171FC1720080613F /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF0539171FC1720080613F /* Room.m */; };
+		2EDA76BA172236FD007971D6 /* CurfewCheck+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA76B9172236FD007971D6 /* CurfewCheck+Create.m */; };
 		2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */; };
 		2EDF3E3C1719127300CE4614 /* checkouticon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3B1719127300CE4614 /* checkouticon2.png */; };
 		2EDF3E6117193C5100CE4614 /* CheckRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E6017193C5100CE4614 /* CheckRoomsViewController.m */; };
@@ -83,6 +84,8 @@
 		2EAF0536171FC1710080613F /* DormWing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DormWing.m; sourceTree = "<group>"; };
 		2EAF0538171FC1720080613F /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		2EAF0539171FC1720080613F /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		2EDA76B8172236FD007971D6 /* CurfewCheck+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CurfewCheck+Create.h"; sourceTree = "<group>"; };
+		2EDA76B9172236FD007971D6 /* CurfewCheck+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CurfewCheck+Create.m"; sourceTree = "<group>"; };
 		2EDF3E3817190C5F00CE4614 /* MainMenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTabBarController.h; sourceTree = "<group>"; };
 		2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTabBarController.m; sourceTree = "<group>"; };
 		2EDF3E3B1719127300CE4614 /* checkouticon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkouticon2.png; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				2E478AC21720FE5100661172 /* Room+Create.m */,
 				2E478AC71721005A00661172 /* DormWing+Create.h */,
 				2E478AC81721005A00661172 /* DormWing+Create.m */,
+				2EDA76B8172236FD007971D6 /* CurfewCheck+Create.h */,
+				2EDA76B9172236FD007971D6 /* CurfewCheck+Create.m */,
 			);
 			name = DataEntities;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				2E478AC01720D92E00661172 /* AddNewWingViewController.m in Sources */,
 				2E478AC31720FE5100661172 /* Room+Create.m in Sources */,
 				2E478AC91721005A00661172 /* DormWing+Create.m in Sources */,
+				2EDA76BA172236FD007971D6 /* CurfewCheck+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
