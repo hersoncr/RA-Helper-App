@@ -33,7 +33,8 @@
         [self.wingsDatabase saveToURL:self.wingsDatabase.fileURL
                       forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                           if (success) {
-                              //[self populateStatusDatabaseWithDefaults];
+                              [self.wingsDatabase saveToURL:self.wingsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
                           }
                       }];
         
@@ -41,13 +42,15 @@
         // document does exist on disk, but we need to open it (again, we use a separate thread)
         [self.wingsDatabase openWithCompletionHandler:^(BOOL success) {
             if (success) {
-                //[self populateStatusDatabaseWithDefaults];
+                [self.wingsDatabase saveToURL:self.wingsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
             }
         }];
         
     } else if (self.wingsDatabase.documentState == UIDocumentStateNormal) {
         // document is already open and ready to use
-        //[self populateStatusDatabaseWithDefaults];
+        [self.wingsDatabase saveToURL:self.wingsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
     }
     
 }
@@ -57,21 +60,22 @@
     
     if (!self.wingsDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default Wings Database"];
+        url = [url URLByAppendingPathComponent:@"Default APP Database"];
         // url is now "<Documents Directory>/Default Status Database"
         
         // Now create the document on disk and call the setter for statusDatabase property
         self.wingsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
         
     }
+    
 }
 - (IBAction)addNewWingAction:(id)sender {
     NSString *message = nil;
     
     //[NSString stringWithFormat:@"You selected: %@",];
     
-    if (!self.wingNameTextField.text || ![self.wingNameTextField.text isEqualToString:@""]
-        || !self.dormNameTextField.text || ![self.dormNameTextField.text isEqualToString:@""])
+    if (self.wingNameTextField.text && ![self.wingNameTextField.text isEqualToString:@""]
+        && self.dormNameTextField.text && ![self.dormNameTextField.text isEqualToString:@""])
     {
         DormWing * dormWing = [DormWing dormWingWithName:self.wingNameTextField.text AndWithDormName:self.dormNameTextField.text inContext:self.wingsDatabase.managedObjectContext];
         

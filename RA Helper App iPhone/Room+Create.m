@@ -9,7 +9,7 @@
 #import "Room+Create.h"
 #import "DormWing+Create.h"
 @implementation Room (Create)
-+ (Room *) roomWithName:(NSString *) roomName inWing:(NSString *) wingName andWithContext:(NSManagedObjectContext *)context
++ (Room *) roomWithName:(NSString *) roomName inWing:(DormWing *) dormWing andWithContext:(NSManagedObjectContext *)context
 {
     Room *room = nil;
     
@@ -42,8 +42,8 @@
                                                inManagedObjectContext:context];
         // and set its attribute
         room.roomName = roomName;
-        room.wing = [DormWing dormWingWithName:wingName AndWithDormName:@"" inContext:context];
         
+        room.wing = [DormWing dormWingWithName:[dormWing wingName] AndWithDormName:[dormWing dorm] inContext:context];
     } else {
         // Found matching entry in database.  Return it!
         room = [rooms lastObject];
@@ -55,7 +55,7 @@
 + (NSArray *) getAllRoomsWithContext:(NSManagedObjectContext *)context
 {
     static NSArray * rooms = nil;
-    if(!rooms)
+    if(!rooms || rooms.count== 0)
     {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
         NSError *error = nil;
@@ -68,8 +68,6 @@
         }else if([rooms count] == 0)
         {
             rooms = [[NSArray alloc] init];
-        }else{
-            [context save:nil];
         }
     }
     

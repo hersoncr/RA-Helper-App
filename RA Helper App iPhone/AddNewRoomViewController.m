@@ -42,7 +42,7 @@
     
     if (!self.roomsDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default Rooms Database"];
+        url = [url URLByAppendingPathComponent:@"Default APP Database"];
         // url is now "<Documents Directory>/Default Status Database"
         
         // Now create the document on disk and call the setter for statusDatabase property
@@ -52,14 +52,14 @@
     
     if (!self.wingsDataSource) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default Wings Database"];
+        url = [url URLByAppendingPathComponent:@"Default APP Database"];
         // url is now "<Documents Directory>/Default Status Database"
         
         // Now create the document on disk and call the setter for statusDatabase property
         self.wingsDataSource = [[UIManagedDocument alloc] initWithFileURL:url];
-        self.wingsArray = [DormWing getAllDormWingsWithContext:self.wingsDataSource.managedObjectContext];
+        
     }
-    
+    self.wingsArray = [DormWing getAllDormWingsWithContext:self.wingsDataSource.managedObjectContext];
     UIView * subView = [self.scrollViewOutlet.subviews objectAtIndex:0];
     self.scrollViewOutlet.contentSize = CGSizeMake(subView.bounds.size.width, subView.bounds.size.height);
     NSLog(@"height = %g, width = %g ",subView.bounds.size.height, subView.bounds.size.width);
@@ -73,7 +73,11 @@
         [document saveToURL:document.fileURL
                      forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                          if (success) {
-                             //[self populateStatusDatabaseWithDefaults];
+                             NSLog(@"File created!");
+                             self.wingsArray = [DormWing getAllDormWingsWithContext:self.wingsDataSource.managedObjectContext];
+                             [self.wingsPickerViewOutlet reloadAllComponents];
+                             [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
                          }
                      }];
         
@@ -81,13 +85,22 @@
         // document does exist on disk, but we need to open it (again, we use a separate thread)
         [document openWithCompletionHandler:^(BOOL success) {
             if (success) {
-                //[self populateStatusDatabaseWithDefaults];
+                
+                NSLog(@"File opened!");
+                self.wingsArray = [DormWing getAllDormWingsWithContext:self.wingsDataSource.managedObjectContext];
+                [self.wingsPickerViewOutlet reloadAllComponents];
+                [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
             }
-        }];
+        }]; 
         
     } else if (document.documentState == UIDocumentStateNormal) {
         // document is already open and ready to use
-        //[self populateStatusDatabaseWithDefaults];
+        NSLog(@"File is already opened!");
+        self.wingsArray = [DormWing getAllDormWingsWithContext:self.wingsDataSource.managedObjectContext];
+        [self.wingsPickerViewOutlet reloadAllComponents];
+        [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
     }
     
 }
@@ -106,14 +119,21 @@
     
     //[NSString stringWithFormat:@"You selected: %@",];
     
-    if (!self.roomNameTextField.text || ![self.roomNameTextField.text isEqualToString:@""]
-            || [self.wingsPickerViewOutlet selectedRowInComponent:0]!= -1 || ![self.wingsArray objectAtIndex:[self.wingsPickerViewOutlet selectedRowInComponent:0]])
+    if (self.roomNameTextField.text && ![self.roomNameTextField.text isEqualToString:@""]
+            && [self.wingsPickerViewOutlet selectedRowInComponent:0]!= -1 && [self.wingsArray objectAtIndex:[self.wingsPickerViewOutlet selectedRowInComponent:0]])
     {
         int selectedIndex = [self.wingsPickerViewOutlet selectedRowInComponent:0];
-
-        Room * room = [Room roomWithName:self.roomNameTextField.text inWing:[self.wingsArray objectAtIndex:selectedIndex] andWithContext:self.roomsDatabase.managedObjectContext];
-        [self.wingsDataSource.managedObjectContext save:nil];
-        message = [NSString stringWithFormat:@"You added successfully a new dorm wing: %@",room.roomName];
+        DormWing * dormWing = [self.wingsArray objectAtIndex:selectedIndex];
+        Room * room = [Room roomWithName:self.roomNameTextField.text inWing:dormWing andWithContext:self.roomsDatabase.managedObjectContext];
+        
+        NSError * error = nil;
+        if ([self.roomsDatabase.managedObjectContext save:&error] && [self.wingsDataSource.managedObjectContext save:&error]) {
+            
+            
+            message = [NSString stringWithFormat:@"You added successfully a new dorm room: %@ in wing = %@",room.roomName,room.wing.wingName];
+        }else {
+            message = [NSString stringWithFormat:@"An error ocurred while adding new room: %@",error.description];
+        }
     }else {
         message = @"Your room name must not be empty.";
     }
@@ -152,7 +172,7 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.wingsArray objectAtIndex:row];
+    return [[self.wingsArray objectAtIndex:row] wingName];
 }
 
 @end

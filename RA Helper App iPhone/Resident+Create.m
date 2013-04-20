@@ -9,7 +9,7 @@
 #import "Resident+Create.h"
 
 @implementation Resident (Create)
-+ (Resident *)residentWithFirstName:(NSString *)firstName  LastName:(NSString *)lastName Phone:(NSString *) phoneNumber ResidentID:(NSString *)residentID inManagedObjectContext:(NSManagedObjectContext *)context
++ (Resident *)residentWithFirstName:(NSString *)firstName  LastName:(NSString *)lastName Phone:(NSString *) phoneNumber ResidentID:(NSString *)residentID room:(Room *)room inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Resident *resident = nil;
     
@@ -40,7 +40,7 @@
         resident.firstName = firstName;
         resident.lastName = lastName;
         resident.phone = phoneNumber;
-
+        resident.room = room;
         resident.residentId = [NSNumber numberWithInteger:[residentID integerValue]];
         
     } else {

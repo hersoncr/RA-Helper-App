@@ -9,5 +9,5 @@
 #import "Resident.h"
 
 @interface Resident (Create)
-+ (Resident *)residentWithFirstName:(NSString *)firstName  LastName:(NSString *)lastName Phone:(NSString *) phoneNumber ResidentID:(NSString *)residentID inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Resident *)residentWithFirstName:(NSString *)firstName  LastName:(NSString *)lastName Phone:(NSString *) phoneNumber ResidentID:(NSString *)residentID room:(Room *) room inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

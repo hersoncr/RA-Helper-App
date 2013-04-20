@@ -155,6 +155,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelNewResidentAction" destination="NSD-PE-XWX" eventType="touchUpInside" id="ZqI-PW-FuK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -175,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="921" y="-21"/>
         </scene>
-        <!--Checkout Residents View Controller - Checkout Rooms-->
+        <!--Check Rooms View Controller - Checkout Rooms-->
         <scene sceneID="5uc-xw-t6q">
             <objects>
-                <tableViewController id="5gd-ty-lg9" customClass="CheckoutResidentsViewController" sceneMemberID="viewController">
+                <tableViewController id="5gd-ty-lg9" customClass="CheckRoomsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ha5-0k-vV1">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,7 +370,7 @@
         <scene sceneID="M4e-Ih-5LO">
             <objects>
                 <viewController id="vtO-e5-MKp" customClass="AddNewRoomViewController" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wZD-KV-YJh">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" id="wZD-KV-YJh">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -506,6 +509,48 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="AddNewRoomViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewRoomAction:"/>
+                <relationship kind="action" name="cancelNewRoomAction:"/>
+                <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="AddNewWingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewWingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewWingAction:"/>
+                <relationship kind="action" name="cancelAddNewWing:"/>
+                <relationship kind="outlet" name="dormNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="wingNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddResidentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddResidentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewResidentAction:"/>
+                <relationship kind="outlet" name="firstNameOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pickerViewOutlet" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="studentIDOutlet" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CheckRoomsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckRoomsViewController.h"/>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -67,8 +67,6 @@
         }else if([dormWings count] == 0)
         {
             dormWings = [[NSArray alloc] init];
-        }else{
-            [context save:nil];
         }
     }
     

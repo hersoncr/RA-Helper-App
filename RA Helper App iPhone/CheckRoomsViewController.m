@@ -82,7 +82,7 @@
 {
     if (!self.statusDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default Status Database"];
+        url = [url URLByAppendingPathComponent:@"Default APP Database"];
         // url is now "<Documents Directory>/Default Status Database"
         
         // Now create the document on disk and call the setter for statusDatabase property

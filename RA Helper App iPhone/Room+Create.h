@@ -9,7 +9,7 @@
 #import "Room.h"
 
 @interface Room (Create)
-+ (Room *) roomWithName:(NSString *) roomName inWing:(NSString *) wingName andWithContext:(NSManagedObjectContext *) context;
++ (Room *) roomWithName:(NSString *) roomName inWing:(DormWing *) dormWing andWithContext:(NSManagedObjectContext *) context;
 
 + (NSArray *) getAllRoomsWithContext:(NSManagedObjectContext *)context;
 @end

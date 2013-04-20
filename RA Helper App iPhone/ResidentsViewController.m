@@ -23,7 +23,7 @@
 {
     if (!self.residentsDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default Residents Database"];
+        url = [url URLByAppendingPathComponent:@"Default APP Database"];
         // url is now "<Documents Directory>/Default Residents Database"
         
         // Now create the document on disk and call the setter for photoDatabase property
@@ -62,6 +62,8 @@
                              [self setupFetchedResultsController];
                              // In case the app should shut down before AUTOSAVING kicks in
                              [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+                             
+
                              
                          }
                      }];
