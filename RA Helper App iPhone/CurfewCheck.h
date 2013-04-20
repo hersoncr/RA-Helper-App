@@ -2,7 +2,7 @@
 //  CurfewCheck.h
 //  RA Helper App iPhone
 //
-//  Created by Herson Alfaro on 4/18/13.
+//  Created by Herson Alfaro on 4/19/13.
 //  Copyright (c) 2013 Harding University CS. All rights reserved.
 //
 
@@ -15,14 +15,6 @@
 
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) Resident *residentId;
-@property (nonatomic, retain) NSSet *status;
-@end
-
-@interface CurfewCheck (CoreDataGeneratedAccessors)
-
-- (void)addStatusObject:(Status *)value;
-- (void)removeStatusObject:(Status *)value;
-- (void)addStatus:(NSSet *)values;
-- (void)removeStatus:(NSSet *)values;
+@property (nonatomic, retain) Status *status;
 
 @end
