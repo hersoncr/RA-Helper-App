@@ -50,4 +50,25 @@
     
     return resident;
 }
+
++ (NSArray *) getAllResidentsInContext:(NSManagedObjectContext *)context
+{
+    NSArray * residents = nil;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resident"];
+    NSError *error = nil;
+    residents = [context executeFetchRequest:request error:&error];
+    
+    if (!residents ) {
+        // if nil, there is some type of problem (would be better to handle this, but ... )
+        // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
+        NSLog(@"Error!  residents = %@",residents);
+    }else if([residents count] == 0)
+    {
+        residents = [[NSArray alloc] init];
+    }
+    
+    
+    return residents;
+}
 @end

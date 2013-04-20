@@ -7,11 +7,13 @@
 //
 #import <CoreData/CoreData.h>
 #import "CheckRoomsViewController.h"
-#import "Status.h"
-#import "Resident.h"
-#import "Room.h"
+#import "Resident+Create.h"
+#import "Room+Create.h"
 #import "AppDelegate.h"
 #import "Status+Status_Create.h"
+#import "CurfewCheck+Create.h"
+
+
 @interface CheckRoomsViewController ()
 @property NSArray *statuses;
 @end
@@ -23,6 +25,12 @@
 @synthesize statuses = _statuses;
 @synthesize statusDatabase = _statusDatabase;
 
+- (NSDate *) getTodayDate{
+
+    NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    return [[NSCalendar currentCalendar] dateFromComponents:comps];
+    
+}
 
 - (void)setStatusDatabase:(UIManagedDocument *)statusDatabase
 {
@@ -42,14 +50,16 @@
 {
     // Query the database to see if Resident's first name is already stored there
     //  (1) Initialize a NSFetchRequest with the desired Entity defined in the DB schema
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resident"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CurfewCheck"];
     
     //  (2) Since we want ALL of the residents for this tableView,
     //      we don't want to specify a predicate
     
+    request.predicate = [NSPredicate predicateWithFormat:@"date = %@", [self getTodayDate]];
     
-    //  (3) Add sort keys to the fetch request  (Note the use of "CaseInsensitiveCompare")
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+    //  (3) Add sort keys to the fetch request 
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
     //  (4) Attach the request to this tableViewController (see Apple Docs)
@@ -107,6 +117,24 @@
     
     return statuses;
 }
+- (void) populateCheckCurfewForAllResidentsIn:(NSDate *) date
+{
+    Status * absentStatus = [Status statusWithName:@"Absent" inManagedObjectContext:self.statusDatabase.managedObjectContext];
+    NSArray * residents = [Resident getAllResidentsInContext:self.statusDatabase.managedObjectContext];
+    
+    
+    for (Resident * resident in residents) {
+        
+        CurfewCheck * curfewCheck = [CurfewCheck curfewCheckResident:resident andAtDate:[self getTodayDate] withStatus:absentStatus onContext:self.statusDatabase.managedObjectContext];
+        NSError * error = nil;
+        if (![self.statusDatabase.managedObjectContext save:&error]) {
+            NSLog(@"Error occurred when inserting default status of check out to residents: %@",error.description);
+        }else{
+            NSLog(@" Resident: %@ Date: %@",resident.firstName,curfewCheck.date);
+        }
+    }
+    
+}
 
 - (void) setUp
 {
@@ -120,7 +148,8 @@
         
     }
     [self populateStatusDatabaseWithDefaults];
-   
+    [self populateCheckCurfewForAllResidentsIn:[NSDate date]];
+    
     
    
 }
@@ -174,9 +203,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Resident * resident = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    CurfewCheck * curfewCheck = (CurfewCheck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    Resident * resident = curfewCheck.residentId;
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",resident.lastName,resident.firstName];
-    cell.detailTextLabel.text = resident.room.roomName;
+    cell.detailTextLabel.text = curfewCheck.status.statusName;
     
     return cell;
 }

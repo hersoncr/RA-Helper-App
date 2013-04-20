@@ -10,7 +10,7 @@
 #import "Room+Create.h"
 #import "Resident+Create.h"
 @interface CurfewCheck (Create)
-+ (CurfewCheck *) curfewCheckWith:(Room *)room resident:(Resident *) dormWing andAtDate:(NSDate *)date withStatus:(Status *)status onContext:(NSManagedObjectContext *) context;
++ (CurfewCheck *) curfewCheckResident:(Resident *) resident andAtDate:(NSDate *)date withStatus:(Status *)status onContext:(NSManagedObjectContext *) context;
 
 + (NSArray *) getAllCurfewChecksWithContext:(NSManagedObjectContext *)context;
 @end

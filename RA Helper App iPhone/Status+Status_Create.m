@@ -57,7 +57,7 @@
 + (NSArray *) getAllStatusesWithContext:(NSManagedObjectContext *)context
 {
     static NSArray * statusesNames = nil;
-    static NSArray * statusesStatic = nil;
+    NSArray * statusesStatic = nil;
     
     if (statusesStatic == nil)
     {        

@@ -13,6 +13,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollViewOutlet;
 @property (weak, nonatomic) IBOutlet UITextField *roomNameTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *wingsPickerViewOutlet;
-@property (nonatomic, strong) UIManagedDocument *roomsDatabase;
+
 @property NSArray * wingsArray;
 @end

@@ -14,7 +14,7 @@
 @end
 
 @implementation AddNewRoomViewController
-@synthesize roomsDatabase = _roomsDatabase;
+
 @synthesize wingsPickerViewOutlet = _wingsPickerViewOutlet;
 @synthesize roomNameTextField = _roomNameTextField;
 @synthesize wingsArray = _wingsArray;

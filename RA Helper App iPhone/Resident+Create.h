@@ -10,4 +10,5 @@
 
 @interface Resident (Create)
 + (Resident *)residentWithFirstName:(NSString *)firstName  LastName:(NSString *)lastName Phone:(NSString *) phoneNumber ResidentID:(NSString *)residentID room:(Room *) room inManagedObjectContext:(NSManagedObjectContext *)context;
++ (NSArray *) getAllResidentsInContext:(NSManagedObjectContext *)context;
 @end

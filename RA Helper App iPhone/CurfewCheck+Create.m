@@ -9,7 +9,7 @@
 #import "CurfewCheck+Create.h"
 
 @implementation CurfewCheck (Create)
-+ (CurfewCheck *) curfewCheckWith:(Room *) room resident:(Resident *)resident andAtDate:(NSDate *)date withStatus:(Status *)status onContext:(NSManagedObjectContext *) context
++ (CurfewCheck *) curfewCheckResident:(Resident *) resident andAtDate:(NSDate *)date withStatus:(Status *)status onContext:(NSManagedObjectContext *) context
 {
     CurfewCheck * curfewCheck = nil;
     
@@ -46,7 +46,7 @@
         
     } else {
         // Found matching entry in database.  Return it!
-        room = [rooms lastObject];
+        curfewCheck = [curfewChecks lastObject];
     }
 
     
@@ -57,7 +57,20 @@
 {
     NSArray * curfewChecks = [NSArray new];
     
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CurfewCheck"];
+    NSError *error = nil;
+    curfewChecks = [context executeFetchRequest:request error:&error];
     
+    if (!curfewChecks ) {
+        // if nil, there is some type of problem (would be better to handle this, but ... )
+        // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
+        NSLog(@"Error!  curfew checks = %@",curfewChecks);
+    }else if([curfewChecks count] == 0)
+    {
+        curfewChecks = [[NSArray alloc] init];
+    }
+
     return curfewChecks;
 }
+
 @end
