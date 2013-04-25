@@ -7,6 +7,7 @@
 //
 #import <CoreData/CoreData.h>
 #import "CheckRoomsViewController.h"
+#import "CurfewCheckStatusTableViewController.h"
 #import "Resident+Create.h"
 #import "Room+Create.h"
 #import "AppDelegate.h"
@@ -49,6 +50,7 @@
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
+    
     // Query the database to see if Resident's first name is already stored there
     //  (1) Initialize a NSFetchRequest with the desired Entity defined in the DB schema
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CurfewCheck"];
@@ -80,6 +82,7 @@
                              [self setupFetchedResultsController];
                              // In case the app should shut down before AUTOSAVING kicks in
                              [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+                             [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
                          }
                      }];
         
@@ -91,6 +94,7 @@
                 [self setupFetchedResultsController];
                 // In case the app should shut down before AUTOSAVING kicks in
                 [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+                [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
             }
         }];
         
@@ -100,6 +104,7 @@
         [self setupFetchedResultsController];
         // In case the app should shut down before AUTOSAVING kicks in
         [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+        [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
     }
     
 }
@@ -138,7 +143,7 @@
 
 - (void) setUp
 {
-    self.statusDatabase = nil;
+   
     if (!self.statusDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"Default APP Database"];
@@ -149,7 +154,7 @@
         
     }
     [self populateStatusDatabaseWithDefaults];
-    [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
+    
     
     
    
@@ -206,6 +211,9 @@
     // Configure the cell...
     CurfewCheck * curfewCheck = (CurfewCheck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    if ([curfewCheck.status.statusName isEqualToString:@"Absent"]) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     Resident * resident = curfewCheck.residentId;
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",resident.lastName,resident.firstName];
     cell.detailTextLabel.text = curfewCheck.status.statusName;
@@ -265,4 +273,17 @@
      */
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"Check Rooms Status"])
+    {
+        // Get reference to the destination view controller
+        CurfewCheckStatusTableViewController * tableViewController = [segue destinationViewController];
+        UITableViewCell * cell = (UITableViewCell *) sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        
+        tableViewController.curfewCheck = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        tableViewController.title = @"Select a STATUS";
+    }
+}
 @end

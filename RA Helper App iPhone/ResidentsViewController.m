@@ -28,10 +28,6 @@
         
         // Now create the document on disk and call the setter for photoDatabase property
         self.residentsDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
-        
-        
-
-        
     }
     
 }
@@ -131,6 +127,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)didReceiveMemoryWarning
 {

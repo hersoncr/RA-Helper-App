@@ -107,6 +107,12 @@
     [self setUp];
 	// Do any additional setup after loading the view.
 }
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self.roomsDatabase closeWithCompletionHandler:nil];
+}
+
 - (IBAction)cancelNewResidentAction {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

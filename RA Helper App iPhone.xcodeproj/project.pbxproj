@@ -33,6 +33,7 @@
 		2ECB238817223DF6005C03E2 /* CurfewCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB238717223DF6005C03E2 /* CurfewCheck.m */; };
 		2ECB238B17223DF6005C03E2 /* DormWing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB238A17223DF6005C03E2 /* DormWing.m */; };
 		2ECB238E17223DF6005C03E2 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB238D17223DF6005C03E2 /* Room.m */; };
+		2ECB23911722715F005C03E2 /* CurfewCheckStatusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB23901722715F005C03E2 /* CurfewCheckStatusTableViewController.m */; };
 		2EDA76BA172236FD007971D6 /* CurfewCheck+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA76B9172236FD007971D6 /* CurfewCheck+Create.m */; };
 		2EDF3E3A17190C5F00CE4614 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3917190C5F00CE4614 /* MainMenuTabBarController.m */; };
 		2EDF3E3C1719127300CE4614 /* checkouticon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDF3E3B1719127300CE4614 /* checkouticon2.png */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E0E52671728D575007676D2 /* RA Helper App iPhone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "RA Helper App iPhone.entitlements"; sourceTree = "<group>"; };
 		2E478ABB1720D91C00661172 /* AddNewRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewRoomViewController.h; sourceTree = "<group>"; };
 		2E478ABC1720D91C00661172 /* AddNewRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewRoomViewController.m; sourceTree = "<group>"; };
 		2E478ABE1720D92E00661172 /* AddNewWingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewWingViewController.h; sourceTree = "<group>"; };
@@ -84,6 +86,8 @@
 		2ECB238A17223DF6005C03E2 /* DormWing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DormWing.m; sourceTree = "<group>"; };
 		2ECB238C17223DF6005C03E2 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		2ECB238D17223DF6005C03E2 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		2ECB238F1722715F005C03E2 /* CurfewCheckStatusTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurfewCheckStatusTableViewController.h; sourceTree = "<group>"; };
+		2ECB23901722715F005C03E2 /* CurfewCheckStatusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurfewCheckStatusTableViewController.m; sourceTree = "<group>"; };
 		2EDA76B8172236FD007971D6 /* CurfewCheck+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CurfewCheck+Create.h"; sourceTree = "<group>"; };
 		2EDA76B9172236FD007971D6 /* CurfewCheck+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CurfewCheck+Create.m"; sourceTree = "<group>"; };
 		2EDF3E3817190C5F00CE4614 /* MainMenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTabBarController.h; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				2E0E52671728D575007676D2 /* RA Helper App iPhone.entitlements */,
 				2E8BB800171CDD0000014413 /* DataEntities */,
 				2E7695371718FFE3002D45B7 /* AppDelegate.h */,
 				2E7695381718FFE3002D45B7 /* AppDelegate.m */,
@@ -158,6 +163,8 @@
 				2E478ABC1720D91C00661172 /* AddNewRoomViewController.m */,
 				2E478ABE1720D92E00661172 /* AddNewWingViewController.h */,
 				2E478ABF1720D92E00661172 /* AddNewWingViewController.m */,
+				2ECB238F1722715F005C03E2 /* CurfewCheckStatusTableViewController.h */,
+				2ECB23901722715F005C03E2 /* CurfewCheckStatusTableViewController.m */,
 			);
 			path = "RA Helper App iPhone";
 			sourceTree = "<group>";
@@ -292,6 +299,7 @@
 				2ECB238817223DF6005C03E2 /* CurfewCheck.m in Sources */,
 				2ECB238B17223DF6005C03E2 /* DormWing.m in Sources */,
 				2ECB238E17223DF6005C03E2 /* Room.m in Sources */,
+				2ECB23911722715F005C03E2 /* CurfewCheckStatusTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +384,7 @@
 		2E7695491718FFE3002D45B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "RA Helper App iPhone/RA Helper App iPhone.entitlements";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RA Helper App iPhone/RA Helper App iPhone-Prefix.pch";
 				INFOPLIST_FILE = "RA Helper App iPhone/RA Helper App iPhone-Info.plist";
@@ -387,6 +396,7 @@
 		2E76954A1718FFE3002D45B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "RA Helper App iPhone/RA Helper App iPhone.entitlements";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RA Helper App iPhone/RA Helper App iPhone-Prefix.pch";
 				INFOPLIST_FILE = "RA Helper App iPhone/RA Helper App iPhone-Info.plist";

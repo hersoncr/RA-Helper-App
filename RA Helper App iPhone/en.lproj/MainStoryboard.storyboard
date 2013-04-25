@@ -178,7 +178,7 @@
             </objects>
             <point key="canvasLocation" x="921" y="-21"/>
         </scene>
-        <!--Check Rooms View Controller - Checkout Rooms-->
+        <!--Check Rooms View Controller - Check Rooms-->
         <scene sceneID="5uc-xw-t6q">
             <objects>
                 <tableViewController id="5gd-ty-lg9" customClass="CheckRoomsViewController" sceneMemberID="viewController">
@@ -187,23 +187,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Check Resident Cell" editingAccessoryType="checkmark" textLabel="PnU-WX-2Tc" detailTextLabel="5jL-11-fXp" style="IBUITableViewCellStyleSubtitle" id="TnH-fd-C4P">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Check Resident Cell" textLabel="Qwd-jg-Fgx" detailTextLabel="Bfo-zf-Est" style="IBUITableViewCellStyleSubtitle" id="TnH-fd-C4P">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PnU-WX-2Tc">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qwd-jg-Fgx">
                                             <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5jL-11-fXp">
-                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bfo-zf-Est">
+                                            <rect key="frame" x="10" y="24" width="36" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="wPF-ce-nCL" kind="push" identifier="Check Rooms Status" id="4wF-fa-RcC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5gd-ty-lg9" id="nR0-l4-bF6"/>
+                            <outlet property="delegate" destination="5gd-ty-lg9" id="UMd-I6-sYG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Check Rooms" id="LBy-ME-8lH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8l-h2-ty7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="-1125"/>
+        </scene>
+        <!--Curfew Check Status Table View Controller-->
+        <scene sceneID="mT7-QZ-srQ">
+            <objects>
+                <tableViewController id="wPF-ce-nCL" customClass="CurfewCheckStatusTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="EUg-GK-cOC">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Status Cell" textLabel="fFJ-M0-gNZ" style="IBUITableViewCellStyleDefault" id="Ipe-sK-r5H">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fFJ-M0-gNZ">
+                                            <rect key="frame" x="10" y="0.0" width="267" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
@@ -212,15 +256,15 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="5gd-ty-lg9" id="nR0-l4-bF6"/>
-                            <outlet property="delegate" destination="5gd-ty-lg9" id="UMd-I6-sYG"/>
+                            <outlet property="dataSource" destination="wPF-ce-nCL" id="HwO-DT-DwY"/>
+                            <outlet property="delegate" destination="wPF-ce-nCL" id="fY5-GG-iJK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checkout Rooms" id="LBy-ME-8lH"/>
+                    <navigationItem key="navigationItem" id="jjj-xA-3a9"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l8l-h2-ty7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FbH-3I-dOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="319" y="-1125"/>
+            <point key="canvasLocation" x="773" y="-1182"/>
         </scene>
         <!--Tab Bar Controller - Main Menu-->
         <scene sceneID="JVt-cx-VzM">
@@ -509,6 +553,51 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="AddNewRoomViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewRoomAction:"/>
+                <relationship kind="action" name="cancelNewRoomAction:"/>
+                <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="AddNewWingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewWingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewWingAction:"/>
+                <relationship kind="action" name="cancelAddNewWing:"/>
+                <relationship kind="outlet" name="dormNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="wingNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddResidentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddResidentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewResidentAction:"/>
+                <relationship kind="outlet" name="firstNameOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pickerViewOutlet" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="studentIDOutlet" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CheckRoomsViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckRoomsViewController.h"/>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="CurfewCheckStatusTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurfewCheckStatusTableViewController.h"/>
+        </class>
+        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -18,7 +18,7 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CurfewCheck"];
     
     //  (2) Add the information for the predicate (matching criteria)
-    request.predicate = [NSPredicate predicateWithFormat:@"date = %@ AND residentId = %@ ", date,resident.residentId];
+    request.predicate = [NSPredicate predicateWithFormat:@"date = %@ AND residentId = %@ ", date,resident];
     //  (3) Add sort keys to the fetch request
     
     //  (4) Execute the fetch  (we'll ignore the errors here)
