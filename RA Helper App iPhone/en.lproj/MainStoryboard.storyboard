@@ -113,7 +113,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone number" minimumFontSize="17" id="Fms-4g-wcx">
-                                        <rect key="frame" x="106" y="113" width="180" height="30"/>
+                                        <rect key="frame" x="113" y="113" width="173" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -557,8 +557,6 @@
         <class className="AddNewRoomViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addNewRoomAction:"/>
-                <relationship kind="action" name="cancelNewRoomAction:"/>
                 <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>

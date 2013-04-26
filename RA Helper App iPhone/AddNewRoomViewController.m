@@ -9,7 +9,7 @@
 #import "AddNewRoomViewController.h"
 #import "Room+Create.h"
 #import "DormWing+Create.h"
-@interface AddNewRoomViewController ()
+@interface AddNewRoomViewController () <UITextFieldDelegate>
 @property (nonatomic, strong) UIManagedDocument * wingsDataSource;
 @end
 
@@ -20,6 +20,11 @@
 @synthesize wingsArray = _wingsArray;
 @synthesize wingsDataSource = _wingsDataSource;
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
 
 - (void) setWingsDataSource:(UIManagedDocument *)wingsDataSource
 {
@@ -32,7 +37,7 @@
 {
     self.wingsPickerViewOutlet.delegate = self;
     self.wingsPickerViewOutlet.dataSource = self;
-    
+    self.roomNameTextField.delegate = self;
     
     
     if (!self.wingsDataSource) {  // we'll create a default database if none is set

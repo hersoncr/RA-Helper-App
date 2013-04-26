@@ -69,8 +69,18 @@
     
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
 - (void) setUp
 {
+    self.firstNameOutlet.delegate = self;
+    self.lastNameOutlet.delegate = self;
+    self.studentIDOutlet.delegate = self;
+    self.phoneOutlet.delegate = self;
+    
     if (!self.roomsDatabase) {  // we'll create a default database if none is set
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"Default APP Database"];
@@ -166,4 +176,6 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [[self.pickerViewDataSource objectAtIndex:row] roomName];
 }
+
+
 @end
