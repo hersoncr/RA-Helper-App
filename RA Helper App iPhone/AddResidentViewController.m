@@ -12,6 +12,7 @@
 
 @interface AddResidentViewController ()
 @property (strong,nonatomic) UIManagedDocument * roomsDatabase;
+@property id<UpdateTableView> dataSource;
 @end
 
 @implementation AddResidentViewController
@@ -141,6 +142,7 @@
         NSError * error = nil;
         if (!resident || [self.roomsDatabase.managedObjectContext save:&error]) {
             message = [NSString stringWithFormat:@"A new Resident was sucessfully added: %@, %@ in room(%@) ",resident.lastName,resident.firstName,resident.room.roomName];
+            [self.dataSource updateTableView];
         }else{
             message = [NSString stringWithFormat: @"Error while inserting new resident. Error: %@",error.description ];
         }

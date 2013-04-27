@@ -11,13 +11,21 @@
 #import "Room.h"
 #import "Resident+Create.h"
 
-@interface ResidentsViewController ()
+@interface ResidentsViewController () <UpdateTableView>
 
 @end
 
 @implementation ResidentsViewController
 @synthesize residentsDatabase = _residentsDatabase;
 
+- (void) updateTableView
+{
+    [self.tableView reloadData];
+}
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self updateTableView];
+}
 
 - (void) setUp
 {

@@ -9,12 +9,22 @@
 #import "CurfewCheckStatusTableViewController.h"
 
 @interface CurfewCheckStatusTableViewController ()
-
+@property (nonatomic,strong) NSArray * statuses;
 @end
 
 @implementation CurfewCheckStatusTableViewController
 @synthesize statusDatabase = _statusDatabase;
 @synthesize curfewCheck = _curfewCheck;
+@synthesize statuses = _statuses;
+
+- (NSArray *) statuses
+{
+    if (_statuses == nil)
+    {
+        _statuses = [Status getAllStatusesWithContext:self.statusDatabase.managedObjectContext];
+    }
+    return _statuses;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +57,10 @@
         
     }
 
+}
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 - (void)useDocument
@@ -134,14 +148,22 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.fetchedResultsController.fetchedObjects count];
+    return [self.statuses count];
 }
 - (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     Status * status = (Status *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    self.curfewCheck.status = status;
+    status = [Status statusWithName:status.statusName inManagedObjectContext:self.statusDatabase.managedObjectContext];
     
     NSError * error = nil;
+    if (!status)
+    {
+        [self.statusDatabase.managedObjectContext save:&error];
+        NSLog(@"Error occurred while updating status: %@",error.description);
+    }
+    self.curfewCheck.status = status;
+    
+ 
     if (![self.curfewCheck.managedObjectContext save:&error])
     {
         NSLog(@"Error occurred while updating status: %@",error.description);

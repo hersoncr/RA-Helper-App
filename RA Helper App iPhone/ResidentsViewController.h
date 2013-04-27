@@ -8,7 +8,7 @@
 
 
 #import "CoreDataTableViewController.h"
-
+#import "UpdateTableView.h"
 @interface ResidentsViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) UIManagedDocument *residentsDatabase;

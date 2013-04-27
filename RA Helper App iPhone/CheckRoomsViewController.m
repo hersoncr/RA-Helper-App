@@ -111,34 +111,35 @@
 
 - (NSArray *) getStatuses {
     
-    static NSArray  * statuses = nil;
     
-    if (statuses == nil)
+    
+    if (self.statuses == nil)
     {
-        statuses = [Status getAllStatusesWithContext:self.statusDatabase.managedObjectContext];
+        self.statuses = [Status getAllStatusesWithContext:self.statusDatabase.managedObjectContext];
         
     }
     
-    return statuses;
+    
+    return self.statuses;
 }
 - (void) populateCheckCurfewForAllResidentsIn:(NSDate *) date
 {
     
     Status * absentStatus = [Status statusWithName:@"Absent" inManagedObjectContext:self.statusDatabase.managedObjectContext];
     NSArray * residents = [Resident getAllResidentsInContext:self.statusDatabase.managedObjectContext];
+    if (absentStatus) {
     
-    
-    for (Resident * resident in residents) {
-        
-        CurfewCheck * curfewCheck = [CurfewCheck curfewCheckResident:resident andAtDate:[self getTodayDate] withStatus:absentStatus onContext:self.statusDatabase.managedObjectContext];
-        NSError * error = nil;
-        if (![self.statusDatabase.managedObjectContext save:&error]) {
-            NSLog(@"Error occurred when inserting default status of check out to residents: %@",error.description);
-        }else{
-            NSLog(@" Resident: %@ Date: %@",resident.firstName,curfewCheck.date);
+        for (Resident * resident in residents) {
+            
+            CurfewCheck * curfewCheck = [CurfewCheck curfewCheckResident:resident andAtDate:[self getTodayDate] withStatus:absentStatus onContext:self.statusDatabase.managedObjectContext];
+            NSError * error = nil;
+            if (![self.statusDatabase.managedObjectContext save:&error]) {
+                NSLog(@"Error occurred when inserting default status of check out to residents: %@",error.description);
+            }else{
+                NSLog(@" Resident: %@ Date: %@",resident.firstName,curfewCheck.date);
+            }
         }
     }
-    
 }
 
 - (void) setUp
@@ -200,7 +201,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.fetchedResultsController.fetchedObjects count];
+    return [self.residents count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -283,6 +284,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         
         tableViewController.curfewCheck = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        tableViewController.statusDatabase = self.statusDatabase;
         tableViewController.title = @"Select a STATUS";
     }
 }

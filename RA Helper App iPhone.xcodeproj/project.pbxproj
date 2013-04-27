@@ -49,6 +49,7 @@
 		2E478AC21720FE5100661172 /* Room+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Room+Create.m"; sourceTree = "<group>"; };
 		2E478AC71721005A00661172 /* DormWing+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DormWing+Create.h"; sourceTree = "<group>"; };
 		2E478AC81721005A00661172 /* DormWing+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DormWing+Create.m"; sourceTree = "<group>"; };
+		2E74113D172B12D5004185FB /* UpdateTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateTableView.h; sourceTree = "<group>"; };
 		2E7695251718FFE3002D45B7 /* RA Helper App iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RA Helper App iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7695281718FFE3002D45B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E76952A1718FFE3002D45B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +164,7 @@
 				2E478ABF1720D92E00661172 /* AddNewWingViewController.m */,
 				2ECB238F1722715F005C03E2 /* CurfewCheckStatusTableViewController.h */,
 				2ECB23901722715F005C03E2 /* CurfewCheckStatusTableViewController.m */,
+				2E74113D172B12D5004185FB /* UpdateTableView.h */,
 			);
 			path = "RA Helper App iPhone";
 			sourceTree = "<group>";
