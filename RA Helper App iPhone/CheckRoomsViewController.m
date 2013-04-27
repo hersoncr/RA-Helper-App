@@ -1,4 +1,4 @@
-//
+ //
 //  CheckoutResidentsViewController.m
 //  RA Helper App iPhone
 //
@@ -22,9 +22,18 @@
 
 
 @implementation CheckRoomsViewController
-@synthesize residents = _residents;
+@synthesize curfewChecks = _curfewChecks;
 @synthesize statuses = _statuses;
 @synthesize statusDatabase = _statusDatabase;
+
+
+- (NSArray *) curfewChecks
+{
+    if (!_curfewChecks || _curfewChecks.count == 0) {
+        _curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext];
+    }
+    return _curfewChecks;
+}
 
 - (NSDate *) getTodayDate{
 
@@ -41,6 +50,10 @@
         _statusDatabase = statusDatabase;
         [self useDocument];
     }
+}
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self updateTableView];
 }
 
 - (void) populateStatusDatabaseWithDefaults
@@ -95,6 +108,7 @@
                 // In case the app should shut down before AUTOSAVING kicks in
                 [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
                 [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
+                
             }
         }];
         
@@ -109,19 +123,22 @@
     
 }
 
-- (NSArray *) getStatuses {
-    
-    
-    
+- (NSArray *) getStatuses
+{
+        
     if (self.statuses == nil)
     {
         self.statuses = [Status getAllStatusesWithContext:self.statusDatabase.managedObjectContext];
-        
     }
-    
     
     return self.statuses;
 }
+
+- (void) updateTableView
+{
+    [self.tableView reloadData];
+}
+
 - (void) populateCheckCurfewForAllResidentsIn:(NSDate *) date
 {
     
@@ -129,7 +146,8 @@
     NSArray * residents = [Resident getAllResidentsInContext:self.statusDatabase.managedObjectContext];
     if (absentStatus) {
     
-        for (Resident * resident in residents) {
+        for (Resident * resident in residents)
+        {
             
             CurfewCheck * curfewCheck = [CurfewCheck curfewCheckResident:resident andAtDate:[self getTodayDate] withStatus:absentStatus onContext:self.statusDatabase.managedObjectContext];
             NSError * error = nil;
@@ -137,7 +155,14 @@
                 NSLog(@"Error occurred when inserting default status of check out to residents: %@",error.description);
             }else{
                 NSLog(@" Resident: %@ Date: %@",resident.firstName,curfewCheck.date);
+                
             }
+        }
+        [self updateTableView];
+    }else{
+        NSError * error = nil;
+        if (![self.statusDatabase.managedObjectContext save:&error]) {
+            NSLog(@"Error occurred when inserting default status of check out to residents: %@",error.description);
         }
     }
 }
@@ -154,10 +179,6 @@
         self.statusDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
         
     }
-    [self populateStatusDatabaseWithDefaults];
-    
-    
-    
    
 }
 
@@ -201,7 +222,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.residents count];
+    return [self.curfewChecks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

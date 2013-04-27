@@ -20,7 +20,9 @@
 
 - (void) updateTableView
 {
-    [self.tableView reloadData];
+    //[self performFetch];
+    //[self.tableView reloadData];
+    [self setUp];
 }
 - (void) viewWillAppear:(BOOL)animated
 {
