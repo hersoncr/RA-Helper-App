@@ -12,20 +12,38 @@
 #import "Resident+Create.h"
 
 @interface ResidentsViewController () <UpdateTableView>
-
+@property (nonatomic,strong) NSArray * residents;
 @end
 
 @implementation ResidentsViewController
 @synthesize residentsDatabase = _residentsDatabase;
+@synthesize residents = _residents;
+
+- (NSArray *) residents
+{
+    if (!_residents || _residents.count == 0) {
+        if (!self.residentsDatabase) {
+            [self useDocument];
+        }
+        _residents = [Resident getAllResidentsInContext:self.residentsDatabase.managedObjectContext];
+    }
+    return _residents;
+}
 
 - (void) updateTableView
 {
-    //[self performFetch];
-    //[self.tableView reloadData];
-    [self setUp];
+    if (!self.residentsDatabase) {
+        [self useDocument];
+    }
+    self.residents = [Resident getAllResidentsInContext:self.residentsDatabase.managedObjectContext];
+    [self.tableView reloadData];
 }
 - (void) viewWillAppear:(BOOL)animated
 {
+    [self updateTableView];
+}
+- (IBAction)refreshResidents:(id)sender {
+    self.residents = [Resident getAllResidentsInContext:self.residentsDatabase.managedObjectContext];
     [self updateTableView];
 }
 
@@ -158,7 +176,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.fetchedResultsController.fetchedObjects count];
+    return [self.residents count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,7 +185,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Resident * resident = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Resident * resident = [self.residents objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",resident.lastName,resident.firstName];
     cell.detailTextLabel.text = resident.room.roomName;
     

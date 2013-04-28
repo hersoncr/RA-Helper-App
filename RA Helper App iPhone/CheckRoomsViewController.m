@@ -126,7 +126,7 @@
 - (NSArray *) getStatuses
 {
         
-    if (self.statuses == nil)
+    if (self.statuses == nil || self.statuses.count == 0)
     {
         self.statuses = [Status getAllStatusesWithContext:self.statusDatabase.managedObjectContext];
     }
@@ -136,6 +136,10 @@
 
 - (void) updateTableView
 {
+    if (!self.statusDatabase) {
+        [self useDocument];
+    }
+    self.curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext];
     [self.tableView reloadData];
 }
 
@@ -242,6 +246,10 @@
     
     return cell;
 }
+- (IBAction)refreshCurfewChecks:(id)sender {
+    self.curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext];
+    [self updateTableView];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -304,9 +312,9 @@
         UITableViewCell * cell = (UITableViewCell *) sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         
-        tableViewController.curfewCheck = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        tableViewController.curfewCheck = [self.curfewChecks objectAtIndex:indexPath.row];
         tableViewController.statusDatabase = self.statusDatabase;
-        tableViewController.title = @"Select a STATUS";
+        tableViewController.title = [NSString stringWithFormat:@"Status for %@, %@",tableViewController.curfewCheck.residentId.firstName,tableViewController.curfewCheck.residentId.lastName];
     }
 }
 @end

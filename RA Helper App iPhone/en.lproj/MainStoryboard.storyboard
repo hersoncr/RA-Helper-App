@@ -43,6 +43,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Residents" id="ls2-jC-Vf8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="tqo-bo-Gfu">
+                            <connections>
+                                <action selector="refreshResidents:" destination="3tw-hw-ISk" id="WRZ-Ad-oWe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dcI-kE-Edn">
                             <connections>
                                 <segue destination="NSD-PE-XWX" kind="push" identifier="Add New Resident" id="8QP-Ib-VFa"/>
@@ -178,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="921" y="-21"/>
         </scene>
-        <!--Check Rooms View Controller - Check Rooms-->
+        <!--Check Rooms View Controller - Title-->
         <scene sceneID="5uc-xw-t6q">
             <objects>
                 <tableViewController id="5gd-ty-lg9" customClass="CheckRoomsViewController" sceneMemberID="viewController">
@@ -221,7 +226,13 @@
                             <outlet property="delegate" destination="5gd-ty-lg9" id="UMd-I6-sYG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Check Rooms" id="LBy-ME-8lH"/>
+                    <navigationItem key="navigationItem" title="Title" id="eMW-Hb-p5v">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="EKI-Wj-Npu">
+                            <connections>
+                                <action selector="refreshCurfewChecks:" destination="5gd-ty-lg9" id="JzS-BS-FXK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8l-h2-ty7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -557,6 +568,8 @@
         <class className="AddNewRoomViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addNewRoomAction:"/>
+                <relationship kind="action" name="cancelNewRoomAction:"/>
                 <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>
@@ -585,6 +598,9 @@
         </class>
         <class className="CheckRoomsViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckRoomsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshCurfewChecks:"/>
+            </relationships>
         </class>
         <class className="CoreDataTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
@@ -594,6 +610,9 @@
         </class>
         <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshResidents:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

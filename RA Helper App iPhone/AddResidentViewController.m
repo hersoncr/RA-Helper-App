@@ -140,11 +140,15 @@
     if (![@"" isEqualToString:firstName] && ![@"" isEqualToString:lastName] && ![@"" isEqualToString:phone] && ![@"" isEqualToString:room.roomName] && ![@"" isEqualToString:studentID]) {
         Resident * resident = [Resident residentWithFirstName:firstName LastName:lastName Phone:phone ResidentID:studentID room:room inManagedObjectContext:self.roomsDatabase.managedObjectContext];
         NSError * error = nil;
-        if (!resident || [self.roomsDatabase.managedObjectContext save:&error]) {
+        [self.roomsDatabase.managedObjectContext save:&error];
+        if (resident && !error) {
             message = [NSString stringWithFormat:@"A new Resident was sucessfully added: %@, %@ in room(%@) ",resident.lastName,resident.firstName,resident.room.roomName];
             [self.dataSource updateTableView];
-        }else{
+        }else if(error){
             message = [NSString stringWithFormat: @"Error while inserting new resident. Error: %@",error.description ];
+        }else
+        {
+            message = [NSString stringWithFormat: @"Error while inserting new resident."];
         }
         
     }else

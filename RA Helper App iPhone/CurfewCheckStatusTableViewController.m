@@ -19,7 +19,7 @@
 
 - (NSArray *) statuses
 {
-    if (_statuses == nil)
+    if (_statuses == nil || _statuses.count == 0)
     {
         _statuses = [Status getAllStatusesWithContext:self.statusDatabase.managedObjectContext];
     }
@@ -152,7 +152,7 @@
 }
 - (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    Status * status = (Status *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    Status * status = (Status *)[self.statuses objectAtIndex:indexPath.row];
     status = [Status statusWithName:status.statusName inManagedObjectContext:self.statusDatabase.managedObjectContext];
     
     NSError * error = nil;
@@ -168,6 +168,7 @@
     {
         NSLog(@"Error occurred while updating status: %@",error.description);
     }
+    [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
 
@@ -177,7 +178,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Status * status = (Status *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    Status * status = (Status *)[self.statuses objectAtIndex:indexPath.row];
     
     cell.textLabel.text = status.statusName;
     
