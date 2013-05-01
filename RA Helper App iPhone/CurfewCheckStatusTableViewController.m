@@ -162,9 +162,8 @@
         NSLog(@"Error occurred while updating status: %@",error.description);
     }
     self.curfewCheck.status = status;
-    
  
-    if (![self.curfewCheck.managedObjectContext save:&error])
+    if (![self.statusDatabase.managedObjectContext save:&error])
     {
         NSLog(@"Error occurred while updating status: %@",error.description);
     }

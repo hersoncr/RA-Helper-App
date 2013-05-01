@@ -1,4 +1,4 @@
-//
+  //
 //  ResidentsViewController.m
 //  RA Helper App iPhone
 //
@@ -43,7 +43,7 @@
     [self updateTableView];
 }
 - (IBAction)refreshResidents:(id)sender {
-    self.residents = [Resident getAllResidentsInContext:self.residentsDatabase.managedObjectContext];
+    //self.residents = [Resident getAllResidentsInContext:self.residentsDatabase.managedObjectContext];
     [self updateTableView];
 }
 
