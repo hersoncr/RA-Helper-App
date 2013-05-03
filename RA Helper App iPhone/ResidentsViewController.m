@@ -32,11 +32,14 @@
 
 - (void) updateTableView
 {
+    
     if (!self.residentsDatabase) {
-        [self useDocument];
+        [self setUp];
     }
     self.residents = [Resident getAllResidentsInContext:self.residentsDatabase.managedObjectContext];
+    [self.residentsDatabase.managedObjectContext processPendingChanges];
     [self.tableView reloadData];
+    
 }
 - (void) viewWillAppear:(BOOL)animated
 {
@@ -83,10 +86,8 @@
         [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL
                      forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                          if (success) {
-                             [self setupFetchedResultsController];
-                             // In case the app should shut down before AUTOSAVING kicks in
-                             [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
-                             
+                              [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+                             [self updateTableView];
 
                              
                          }
@@ -96,15 +97,15 @@
         // document does exist on disk, but we need to open it (again, we use a separate thread)
         [self.residentsDatabase openWithCompletionHandler:^(BOOL success) {
             if (success) {
-                [self setupFetchedResultsController];
-                [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+               [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+                [self updateTableView];
             }
         }];
         
     } else if (self.residentsDatabase.documentState == UIDocumentStateNormal) {
         // document is already open and ready to use
-        [self setupFetchedResultsController];
         [self.residentsDatabase saveToURL:self.residentsDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+        [self updateTableView];
     }
     
 }
@@ -114,7 +115,7 @@
 // hook it up to our table via an NSFetchedResultsController
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
-{
+{/*
     // Query the database to see if Resident's first name is already stored there
     //  (1) Initialize a NSFetchRequest with the desired Entity defined in the DB schema
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resident"];
@@ -131,7 +132,7 @@
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.residentsDatabase.managedObjectContext
                                                                           sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
+                                                                                   cacheName:nil];*/
 }
 
 
@@ -238,12 +239,41 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
+     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    Resident * resident =[self.residents objectAtIndex:indexPath.row];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@",resident.phone]]];
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+   return UITableViewCellEditingStyleDelete;    
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSUInteger row = [indexPath row];
+    Resident *  resident = [self.residents objectAtIndex:row];
+    if (resident) {
+        [self.residentsDatabase.managedObjectContext deleteObject:resident];
+    
+        NSError * error = nil;
+        resident.room = nil;
+        resident.checkouts = nil;
+        if(![self.residentsDatabase.managedObjectContext save:&error])
+        {
+            NSLog(@"Error occurred while deleting resident");
+        }else{
+            [self.residentsDatabase.managedObjectContext processPendingChanges];
+            [self updateTableView];
+        }
+    }
+}
 @end

@@ -10,7 +10,7 @@
 #import "CoreDataTableViewController.h"
 @interface CheckRoomsViewController : CoreDataTableViewController
 @property (nonatomic,strong) NSArray * curfewChecks;
-@property (nonatomic, strong) UIManagedDocument *statusDatabase;
+@property (nonatomic,strong) UIManagedDocument *statusDatabase;
 - (NSArray *) getStatuses ;
 @end
 

@@ -13,23 +13,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Resident Cell" textLabel="KOj-YU-U9x" detailTextLabel="9vI-aV-XsE" style="IBUITableViewCellStyleSubtitle" id="1Pd-MQ-tEI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Resident Cell" textLabel="KOj-YU-U9x" detailTextLabel="8O6-ds-YC7" style="IBUITableViewCellStyleValue1" id="1Pd-MQ-tEI">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KOj-YU-U9x">
-                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9vI-aV-XsE">
-                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8O6-ds-YC7">
+                                            <rect key="frame" x="253" y="11" width="57" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
@@ -183,7 +184,7 @@
             </objects>
             <point key="canvasLocation" x="921" y="-21"/>
         </scene>
-        <!--Check Rooms View Controller - Title-->
+        <!--Check Rooms View Controller - CheckRooms-->
         <scene sceneID="5uc-xw-t6q">
             <objects>
                 <tableViewController id="5gd-ty-lg9" customClass="CheckRoomsViewController" sceneMemberID="viewController">
@@ -226,10 +227,15 @@
                             <outlet property="delegate" destination="5gd-ty-lg9" id="UMd-I6-sYG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="eMW-Hb-p5v">
+                    <navigationItem key="navigationItem" title="CheckRooms" id="eMW-Hb-p5v">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="EKI-Wj-Npu">
                             <connections>
                                 <action selector="refreshCurfewChecks:" destination="5gd-ty-lg9" id="JzS-BS-FXK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="FLASH" id="D9g-pS-Ggf">
+                            <connections>
+                                <action selector="flashButton:" destination="5gd-ty-lg9" id="B3M-1o-ylA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -564,57 +570,6 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="AddNewRoomViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewRoomAction:"/>
-                <relationship kind="action" name="cancelNewRoomAction:"/>
-                <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="AddNewWingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewWingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewWingAction:"/>
-                <relationship kind="action" name="cancelAddNewWing:"/>
-                <relationship kind="outlet" name="dormNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="wingNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddResidentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddResidentViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addNewResidentAction:"/>
-                <relationship kind="outlet" name="firstNameOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneOutlet" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="pickerViewOutlet" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="studentIDOutlet" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CheckRoomsViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckRoomsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshCurfewChecks:"/>
-            </relationships>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="CurfewCheckStatusTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurfewCheckStatusTableViewController.h"/>
-        </class>
-        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshResidents:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

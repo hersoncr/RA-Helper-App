@@ -8,6 +8,7 @@
 
 #import "CurfewCheck+Create.h"
 
+
 @implementation CurfewCheck (Create)
 + (CurfewCheck *) curfewCheckResident:(Resident *) resident andAtDate:(NSDate *)date withStatus:(Status *)status onContext:(NSManagedObjectContext *) context
 {
@@ -20,7 +21,7 @@
     //  (2) Add the information for the predicate (matching criteria)
     request.predicate = [NSPredicate predicateWithFormat:@"date = %@ AND residentId = %@ ", date,resident];
     //  (3) Add sort keys to the fetch request
-    
+   
     //  (4) Execute the fetch  (we'll ignore the errors here)
     NSError *error = nil;
     NSArray *curfewChecks = [context executeFetchRequest:request error:&error];
@@ -41,6 +42,7 @@
         curfewCheck = [NSEntityDescription insertNewObjectForEntityForName:@"CurfewCheck"
                                              inManagedObjectContext:context];
         curfewCheck.residentId = resident;
+        
         curfewCheck.date = date;
         curfewCheck.status = status;
         
@@ -53,11 +55,12 @@
     return curfewCheck;
 }
 
-+ (NSArray *) getAllCurfewChecksWithContext:(NSManagedObjectContext *)context
++ (NSArray *) getAllCurfewChecksWithContext:(NSManagedObjectContext *)context AtDate:(NSDate *)date 
 {
     NSArray * curfewChecks = [NSArray new];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CurfewCheck"];
+    request.predicate = [NSPredicate predicateWithFormat:@"date = %@ ", date];
     NSError *error = nil;
     curfewChecks = [context executeFetchRequest:request error:&error];
     

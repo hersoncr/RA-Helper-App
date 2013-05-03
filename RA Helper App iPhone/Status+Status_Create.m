@@ -72,7 +72,7 @@
             // if nil, there is some type of problem (would be better to handle this, but ... )
             // Since we are searching for a specific name, there should NOT be more than 1 match.  If count > 1, error!
             NSLog(@"Error!  statuses = %@",statusesStatic);
-        }else if([statusesStatic count] == 0)
+        }else if([statusesStatic count] < 3)
         {
             NSMutableArray * statuses = [[NSMutableArray alloc] init];
             if (statusesNames == nil) {

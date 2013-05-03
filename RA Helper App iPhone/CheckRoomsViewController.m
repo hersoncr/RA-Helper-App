@@ -13,10 +13,11 @@
 #import "AppDelegate.h"
 #import "Status+Status_Create.h"
 #import "CurfewCheck+Create.h"
-
+#import <AVFoundation/AVFoundation.h>
 
 @interface CheckRoomsViewController ()
-@property NSArray *statuses;
+@property (nonatomic,strong) NSArray *statuses;
+@property (nonatomic,strong) AVCaptureSession * AVSession;
 @end
 
 
@@ -25,12 +26,12 @@
 @synthesize curfewChecks = _curfewChecks;
 @synthesize statuses = _statuses;
 @synthesize statusDatabase = _statusDatabase;
-
+@synthesize AVSession = _AVSession;
 
 - (NSArray *) curfewChecks
 {
     if (!_curfewChecks || _curfewChecks.count == 0) {
-        _curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext];
+        _curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext AtDate:[self getTodayDate]];
     }
     return _curfewChecks;
 }
@@ -96,6 +97,7 @@
                              // In case the app should shut down before AUTOSAVING kicks in
                              [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
                              [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
+                             [self updateTableView];
                          }
                      }];
         
@@ -108,6 +110,7 @@
                 // In case the app should shut down before AUTOSAVING kicks in
                 [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
                 [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
+                [self updateTableView];
                 
             }
         }];
@@ -119,6 +122,7 @@
         // In case the app should shut down before AUTOSAVING kicks in
         [self.statusDatabase saveToURL:self.statusDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
         [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
+        [self updateTableView];
     }
     
 }
@@ -136,10 +140,16 @@
 
 - (void) updateTableView
 {
+    
     if (!self.statusDatabase) {
-        [self useDocument];
+        [self setUp];
+    }else {
+        [self populateCheckCurfewForAllResidentsIn:[self getTodayDate]];
     }
-    self.curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext];
+    
+    [self.statusDatabase.managedObjectContext processPendingChanges];
+    self.curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext AtDate:[self getTodayDate]];
+    
     [self.tableView reloadData];
 }
 
@@ -162,7 +172,7 @@
                 
             }
         }
-        [self updateTableView];
+        
     }else{
         NSError * error = nil;
         if (![self.statusDatabase.managedObjectContext save:&error]) {
@@ -228,6 +238,58 @@
     // Return the number of rows in the section.
     return [self.curfewChecks count];
 }
+- (IBAction)flashButton:(id)sender {
+  
+        
+    [self toggleFlashlight];
+    
+}
+- (void)toggleFlashlight
+{
+    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (device){
+        
+    
+        if (device.torchMode == AVCaptureTorchModeOff)
+        {
+            // Create an AV session
+            AVCaptureSession *session = [[AVCaptureSession alloc] init];
+        
+            // Create device input and add to current session
+            AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device    error: nil];
+            [session addInput:input];
+        
+            // Create video output and add to current session
+            AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
+            [session addOutput:output];
+        
+            // Start session configuration
+            [session beginConfiguration];
+            [device lockForConfiguration:nil];
+        
+            // Set torch to on
+            [device setTorchMode:AVCaptureTorchModeOn];
+            
+            [device unlockForConfiguration];
+            [session commitConfiguration];
+        
+            // Start the session
+            [session startRunning];
+        
+            // Keep the session around
+            [self setAVSession:session];
+        
+            
+        }
+        else
+        {   
+            [self.AVSession stopRunning];
+            self.AVSession = nil;
+        }
+    }
+}
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -235,10 +297,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    CurfewCheck * curfewCheck = (CurfewCheck *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    CurfewCheck * curfewCheck = (CurfewCheck *)[self.curfewChecks objectAtIndex:indexPath.row];
     
     if ([curfewCheck.status.statusName isEqualToString:@"Absent"]) {
         cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark; 
     }
     Resident * resident = curfewCheck.residentId;
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",resident.lastName,resident.firstName];
@@ -247,7 +311,7 @@
     return cell;
 }
 - (IBAction)refreshCurfewChecks:(id)sender {
-    self.curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext];
+    //self.curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext];
     [self updateTableView];
 }
 

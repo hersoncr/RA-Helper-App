@@ -12,5 +12,5 @@
 @interface CurfewCheck (Create)
 + (CurfewCheck *) curfewCheckResident:(Resident *) resident andAtDate:(NSDate *)date withStatus:(Status *)status onContext:(NSManagedObjectContext *) context;
 
-+ (NSArray *) getAllCurfewChecksWithContext:(NSManagedObjectContext *)context;
++ (NSArray *) getAllCurfewChecksWithContext:(NSManagedObjectContext *)context AtDate:(NSDate *)date ;
 @end

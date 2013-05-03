@@ -11,6 +11,7 @@
 		2E478AC01720D92E00661172 /* AddNewWingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478ABF1720D92E00661172 /* AddNewWingViewController.m */; };
 		2E478AC31720FE5100661172 /* Room+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478AC21720FE5100661172 /* Room+Create.m */; };
 		2E478AC91721005A00661172 /* DormWing+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478AC81721005A00661172 /* DormWing+Create.m */; };
+		2E546AEF1733606600AD0C1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E546AEE1733606600AD0C1F /* AVFoundation.framework */; };
 		2E7695291718FFE3002D45B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7695281718FFE3002D45B7 /* UIKit.framework */; };
 		2E76952B1718FFE3002D45B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952A1718FFE3002D45B7 /* Foundation.framework */; };
 		2E76952D1718FFE3002D45B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952C1718FFE3002D45B7 /* CoreGraphics.framework */; };
@@ -49,6 +50,7 @@
 		2E478AC21720FE5100661172 /* Room+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Room+Create.m"; sourceTree = "<group>"; };
 		2E478AC71721005A00661172 /* DormWing+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DormWing+Create.h"; sourceTree = "<group>"; };
 		2E478AC81721005A00661172 /* DormWing+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DormWing+Create.m"; sourceTree = "<group>"; };
+		2E546AEE1733606600AD0C1F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2E74113D172B12D5004185FB /* UpdateTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateTableView.h; sourceTree = "<group>"; };
 		2E7695251718FFE3002D45B7 /* RA Helper App iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RA Helper App iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7695281718FFE3002D45B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E546AEF1733606600AD0C1F /* AVFoundation.framework in Frameworks */,
 				2E8BB7FF171CDCDB00014413 /* CoreData.framework in Frameworks */,
 				2E7695291718FFE3002D45B7 /* UIKit.framework in Frameworks */,
 				2E76952B1718FFE3002D45B7 /* Foundation.framework in Frameworks */,
@@ -115,6 +118,7 @@
 		2E76951C1718FFE3002D45B7 = {
 			isa = PBXGroup;
 			children = (
+				2E546AEE1733606600AD0C1F /* AVFoundation.framework */,
 				2E8BB7FE171CDCDB00014413 /* CoreData.framework */,
 				2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */,
 				2E7695271718FFE3002D45B7 /* Frameworks */,

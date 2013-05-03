@@ -143,6 +143,8 @@
         [self.roomsDatabase.managedObjectContext save:&error];
         if (resident && !error) {
             message = [NSString stringWithFormat:@"A new Resident was sucessfully added: %@, %@ in room(%@) ",resident.lastName,resident.firstName,resident.room.roomName];
+            
+            [self.roomsDatabase.managedObjectContext processPendingChanges];
             [self.dataSource updateTableView];
         }else if(error){
             message = [NSString stringWithFormat: @"Error while inserting new resident. Error: %@",error.description ];
