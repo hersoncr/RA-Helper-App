@@ -509,11 +509,11 @@
             </objects>
             <point key="canvasLocation" x="459" y="661"/>
         </scene>
-        <!--Navigation Controller - Checkout-->
+        <!--Navigation Controller - Checkrooms-->
         <scene sceneID="MYX-Yy-WHv">
             <objects>
                 <navigationController id="6kk-8G-1ZQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Checkout" image="checkouticon2.png" id="0hY-fl-ZUl"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Checkrooms" image="checkouticon2.png" id="0hY-fl-ZUl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OaP-b5-IeZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -528,11 +528,11 @@
             </objects>
             <point key="canvasLocation" x="-243" y="-909"/>
         </scene>
-        <!--Navigation Controller - Residents-->
+        <!--Navigation Controller-->
         <scene sceneID="KB4-Ng-cDf">
             <objects>
                 <navigationController id="ATT-gd-kI7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Residents" id="gYz-5r-mTz"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="gYz-5r-mTz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dHQ-wj-Nf2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -570,6 +570,53 @@
     <resources>
         <image name="checkouticon2.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="AddNewRoomViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewRoomViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="roomNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wingsPickerViewOutlet" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="AddNewWingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewWingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewWingAction:"/>
+                <relationship kind="action" name="cancelAddNewWing:"/>
+                <relationship kind="outlet" name="dormNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="wingNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddResidentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddResidentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewResidentAction:"/>
+                <relationship kind="outlet" name="firstNameOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneOutlet" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pickerViewOutlet" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="scrollViewOutlet" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="studentIDOutlet" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CheckRoomsViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckRoomsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="flashButton:"/>
+                <relationship kind="action" name="refreshCurfewChecks:"/>
+            </relationships>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="CurfewCheckStatusTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurfewCheckStatusTableViewController.h"/>
+        </class>
+        <class className="ResidentsViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResidentsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

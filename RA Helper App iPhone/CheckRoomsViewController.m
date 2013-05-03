@@ -137,7 +137,17 @@
     
     return self.statuses;
 }
-
+- (int) getNumberOfAbsenteesInCurfewChecks:(NSArray *) curfewChecks
+{
+    int result = 0;
+    for (CurfewCheck * curfewCheck in curfewChecks)
+    {
+        if ([curfewCheck.status.statusName isEqualToString:@"Absent"]) {
+            result++;
+        }
+    }
+    return result;
+}
 - (void) updateTableView
 {
     
@@ -151,6 +161,8 @@
     self.curfewChecks = [CurfewCheck getAllCurfewChecksWithContext:self.statusDatabase.managedObjectContext AtDate:[self getTodayDate]];
     
     [self.tableView reloadData];
+    int result = [self getNumberOfAbsenteesInCurfewChecks:self.curfewChecks];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = result;
 }
 
 - (void) populateCheckCurfewForAllResidentsIn:(NSDate *) date

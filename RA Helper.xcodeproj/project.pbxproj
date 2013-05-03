@@ -12,6 +12,7 @@
 		2E478AC31720FE5100661172 /* Room+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478AC21720FE5100661172 /* Room+Create.m */; };
 		2E478AC91721005A00661172 /* DormWing+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E478AC81721005A00661172 /* DormWing+Create.m */; };
 		2E546AEF1733606600AD0C1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E546AEE1733606600AD0C1F /* AVFoundation.framework */; };
+		2E546AF11733681500AD0C1F /* checkouticon2 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E546AF01733681500AD0C1F /* checkouticon2 copy.png */; };
 		2E7695291718FFE3002D45B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7695281718FFE3002D45B7 /* UIKit.framework */; };
 		2E76952B1718FFE3002D45B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952A1718FFE3002D45B7 /* Foundation.framework */; };
 		2E76952D1718FFE3002D45B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E76952C1718FFE3002D45B7 /* CoreGraphics.framework */; };
@@ -51,15 +52,16 @@
 		2E478AC71721005A00661172 /* DormWing+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DormWing+Create.h"; sourceTree = "<group>"; };
 		2E478AC81721005A00661172 /* DormWing+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DormWing+Create.m"; sourceTree = "<group>"; };
 		2E546AEE1733606600AD0C1F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2E546AF01733681500AD0C1F /* checkouticon2 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkouticon2 copy.png"; sourceTree = "<group>"; };
 		2E74113D172B12D5004185FB /* UpdateTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateTableView.h; sourceTree = "<group>"; };
-		2E7695251718FFE3002D45B7 /* RA Helper App iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RA Helper App iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E7695251718FFE3002D45B7 /* RA Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RA Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7695281718FFE3002D45B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E76952A1718FFE3002D45B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2E76952C1718FFE3002D45B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2E7695301718FFE3002D45B7 /* RA Helper App iPhone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RA Helper App iPhone-Info.plist"; sourceTree = "<group>"; };
+		2E7695301718FFE3002D45B7 /* RA Helper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RA Helper-Info.plist"; sourceTree = "<group>"; };
 		2E7695321718FFE3002D45B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E7695341718FFE3002D45B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2E7695361718FFE3002D45B7 /* RA Helper App iPhone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RA Helper App iPhone-Prefix.pch"; sourceTree = "<group>"; };
+		2E7695361718FFE3002D45B7 /* RA Helper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RA Helper-Prefix.pch"; sourceTree = "<group>"; };
 		2E7695371718FFE3002D45B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2E7695381718FFE3002D45B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2E76953A1718FFE3002D45B7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		2E76951C1718FFE3002D45B7 = {
 			isa = PBXGroup;
 			children = (
+				2E546AF01733681500AD0C1F /* checkouticon2 copy.png */,
 				2E546AEE1733606600AD0C1F /* AVFoundation.framework */,
 				2E8BB7FE171CDCDB00014413 /* CoreData.framework */,
 				2E76952E1718FFE3002D45B7 /* RA Helper App iPhone */,
@@ -129,7 +132,7 @@
 		2E7695261718FFE3002D45B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E7695251718FFE3002D45B7 /* RA Helper App iPhone.app */,
+				2E7695251718FFE3002D45B7 /* RA Helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,10 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				2EDF3E3B1719127300CE4614 /* checkouticon2.png */,
-				2E7695301718FFE3002D45B7 /* RA Helper App iPhone-Info.plist */,
+				2E7695301718FFE3002D45B7 /* RA Helper-Info.plist */,
 				2E7695311718FFE3002D45B7 /* InfoPlist.strings */,
 				2E7695341718FFE3002D45B7 /* main.m */,
-				2E7695361718FFE3002D45B7 /* RA Helper App iPhone-Prefix.pch */,
+				2E7695361718FFE3002D45B7 /* RA Helper-Prefix.pch */,
 				2E76953A1718FFE3002D45B7 /* Default.png */,
 				2E76953C1718FFE3002D45B7 /* Default@2x.png */,
 				2E76953E1718FFE3002D45B7 /* Default-568h@2x.png */,
@@ -219,9 +222,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E7695241718FFE3002D45B7 /* RA Helper App iPhone */ = {
+		2E7695241718FFE3002D45B7 /* RA Helper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E7695481718FFE3002D45B7 /* Build configuration list for PBXNativeTarget "RA Helper App iPhone" */;
+			buildConfigurationList = 2E7695481718FFE3002D45B7 /* Build configuration list for PBXNativeTarget "RA Helper" */;
 			buildPhases = (
 				2E7695211718FFE3002D45B7 /* Sources */,
 				2E7695221718FFE3002D45B7 /* Frameworks */,
@@ -231,9 +234,9 @@
 			);
 			dependencies = (
 			);
-			name = "RA Helper App iPhone";
+			name = "RA Helper";
 			productName = "RA Helper App iPhone";
-			productReference = 2E7695251718FFE3002D45B7 /* RA Helper App iPhone.app */;
+			productReference = 2E7695251718FFE3002D45B7 /* RA Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -245,7 +248,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Harding University CS";
 			};
-			buildConfigurationList = 2E7695201718FFE3002D45B7 /* Build configuration list for PBXProject "RA Helper App iPhone" */;
+			buildConfigurationList = 2E7695201718FFE3002D45B7 /* Build configuration list for PBXProject "RA Helper" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -257,7 +260,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E7695241718FFE3002D45B7 /* RA Helper App iPhone */,
+				2E7695241718FFE3002D45B7 /* RA Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -273,6 +276,7 @@
 				2E76953F1718FFE3002D45B7 /* Default-568h@2x.png in Resources */,
 				2E7695421718FFE3002D45B7 /* MainStoryboard.storyboard in Resources */,
 				2EDF3E3C1719127300CE4614 /* checkouticon2.png in Resources */,
+				2E546AF11733681500AD0C1F /* checkouticon2 copy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,9 +400,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RA Helper App iPhone/RA Helper App iPhone-Prefix.pch";
-				INFOPLIST_FILE = "RA Helper App iPhone/RA Helper App iPhone-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "RA Helper App iPhone/RA Helper-Prefix.pch";
+				INFOPLIST_FILE = "RA Helper App iPhone/RA Helper-Info.plist";
+				PRODUCT_NAME = "RA Helper";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -408,9 +412,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RA Helper App iPhone/RA Helper App iPhone-Prefix.pch";
-				INFOPLIST_FILE = "RA Helper App iPhone/RA Helper App iPhone-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "RA Helper App iPhone/RA Helper-Prefix.pch";
+				INFOPLIST_FILE = "RA Helper App iPhone/RA Helper-Info.plist";
+				PRODUCT_NAME = "RA Helper";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -419,7 +423,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E7695201718FFE3002D45B7 /* Build configuration list for PBXProject "RA Helper App iPhone" */ = {
+		2E7695201718FFE3002D45B7 /* Build configuration list for PBXProject "RA Helper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E7695461718FFE3002D45B7 /* Debug */,
@@ -428,7 +432,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E7695481718FFE3002D45B7 /* Build configuration list for PBXNativeTarget "RA Helper App iPhone" */ = {
+		2E7695481718FFE3002D45B7 /* Build configuration list for PBXNativeTarget "RA Helper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E7695491718FFE3002D45B7 /* Debug */,

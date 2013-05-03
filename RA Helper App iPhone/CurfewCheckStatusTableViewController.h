@@ -12,7 +12,7 @@
 #import "Status+Status_Create.h"
 
 @interface CurfewCheckStatusTableViewController : CoreDataTableViewController
-@property (nonatomic, weak) CurfewCheck * curfewCheck;
+@property (nonatomic, strong) CurfewCheck * curfewCheck;
 @property (nonatomic, strong) UIManagedDocument *statusDatabase;
 
 @end
